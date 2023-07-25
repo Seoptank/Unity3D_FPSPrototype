@@ -2,8 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class AmmoEvent : UnityEngine.Events.UnityEvent<int, int> { }
+
 public class WeaponAssultRifle : MonoBehaviour
 {
+    [HideInInspector]
+    public AmmoEvent                    onAmmoEvent = new AmmoEvent();
+
     [Header("Fire Effect")]
     [SerializeField]
     private GameObject                  muzzleFlashEffect;         // 총구 이펙트(on/off) 
@@ -28,17 +34,25 @@ public class WeaponAssultRifle : MonoBehaviour
     private PlayerAnimationController   playerAni;
     private CasingMemoryPool            casingMemoryPool;
 
+    // 외부에서 필요한 정보를 열람하기 위해 정의한 Get Property's
+    public WeaponName WeaponName => weaponSetting.weaponName;
+
     private void Awake()
     {
         audioSource         = GetComponent<AudioSource>();
         playerAni           = GetComponentInParent<PlayerAnimationController>();
         casingMemoryPool    = GetComponent<CasingMemoryPool>();
+
+        weaponSetting.curAmmo = weaponSetting.maxAmmo;
     }
 
     private void OnEnable()
     {
         PlaySound(takeout);
         muzzleFlashEffect.SetActive(false);
+
+        //무기 비활성화될 때 해당 무기의 탄수 정보 갱신
+        onAmmoEvent.Invoke(weaponSetting.curAmmo, weaponSetting.maxAmmo);
     }
 
     public void StartWeaponAction(int type = 0)
@@ -89,6 +103,15 @@ public class WeaponAssultRifle : MonoBehaviour
             }
             // 공격주기가 되어야 공격할 수 있도록 하기 위해 현재 시간 저장
             lastAttackTime = Time.time;
+
+            // 탄 수가 없으면 공격 불가
+            if(weaponSetting.curAmmo <= 0)
+            {
+                return;
+            }
+
+            weaponSetting.curAmmo--;
+            onAmmoEvent.Invoke(weaponSetting.curAmmo, weaponSetting.maxAmmo);
 
             // 무기 발사 애니메이션 재생
             playerAni.Play("Fire", -1, 0);
