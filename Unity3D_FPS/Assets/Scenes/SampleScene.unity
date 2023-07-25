@@ -802,6 +802,7 @@ MonoBehaviour:
   casingSpawnPoint: {fileID: 1816867784}
   takeout: {fileID: 8300000, guid: 811de5baaa2a1454ca8d2d8fad47f5c3, type: 3}
   fire: {fileID: 8300000, guid: 6bdae35d4ae313648a325e6401656f99, type: 3}
+  reload: {fileID: 8300000, guid: d5bf691a799b5e5489b979569d0d6de4, type: 3}
   weaponSetting:
     weaponName: 0
     curAmmo: 0
@@ -2140,6 +2141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runKey: 304
   jumpKey: 32
+  reloadKey: 114
   walkClip: {fileID: 8300000, guid: e7937a620929263449b001b8d04a459e, type: 3}
   runClip: {fileID: 8300000, guid: 26a24eeca548c3d4ea5cfe0487302467, type: 3}
 --- !u!114 &1976485848
