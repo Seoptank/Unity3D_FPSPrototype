@@ -20,13 +20,23 @@ public class PlayerHUD : MonoBehaviour
 
     [Header("Ammo")]
     [SerializeField]
-    private TextMeshProUGUI             textAmmo;               // 현재/최대 탄수 출력
+    private TextMeshProUGUI         textAmmo;               // 현재/최대 탄수 출력
+
+    [Header("Magazine")]
+    [SerializeField]
+    private GameObject              magazineUIPrefab;       // 탄창 UI Prefab
+    [SerializeField]                                        
+    private Transform               magazineParent;         // 탄창UI의 부모 Panel
+                                                            
+    private List<GameObject>        magazineList;           // 탄창 UI 리스트
 
     private void Awake()
     {
         SetupWeapon();
+        SetupMagazine();
 
         weapon.onAmmoEvent.AddListener(UpdateAmmoHUD);
+        weapon.onMagazineEvent.AddListener(UpdateMagazineHUD);
     }
 
     private void SetupWeapon()
@@ -38,5 +48,39 @@ public class PlayerHUD : MonoBehaviour
     private void UpdateAmmoHUD(int curAmmo, int maxAmmo)
     {
         textAmmo.text = $"<size=40>{ curAmmo}/</size>{maxAmmo}";
+    }
+
+    private void SetupMagazine()
+    {
+        // weapon의 최대 탄창 갯수만큼 Image Icon 생성,
+        // magazineParent 오브젝트 자식으로 등록 후 모두 비활성화/리스트에 저장
+        magazineList = new List<GameObject>();
+        for (int i = 0; i < weapon.MaxMagazine; ++i)
+        {
+            GameObject clone = Instantiate(magazineUIPrefab);
+            clone.transform.SetParent(magazineParent);
+            clone.SetActive(false);
+
+            magazineList.Add(clone);
+        }
+
+        // weapon에 등록되어있는 현재 탄창 개수만큼 오브젝트 활성화
+        for (int i = 0; i < weapon.MaxMagazine; ++i)
+        {
+            magazineList[i].SetActive(true);
+        }
+    }
+
+    private void UpdateMagazineHUD(int curMagazine)
+    {
+        // 전부 비활성화하고, curMagazine개수만큼 활성화
+        for (int i = 0; i < magazineList.Count; ++i)
+        {
+            magazineList[i].SetActive(false);
+        }
+        for (int i = 0; i < curMagazine; ++i)
+        {
+            magazineList[i].SetActive(true);
+        }
     }
 }

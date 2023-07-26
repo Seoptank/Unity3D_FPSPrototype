@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class AmmoEvent : UnityEngine.Events.UnityEvent<int, int> { }
+[System.Serializable]
 public class MagazineEvent : UnityEngine.Events.UnityEvent<int> { }
 
 public class WeaponAssultRifle : MonoBehaviour
-{{
+{
     [HideInInspector]
     public AmmoEvent                    onAmmoEvent = new AmmoEvent();
     [HideInInspector]
@@ -16,10 +18,14 @@ public class WeaponAssultRifle : MonoBehaviour
     [Header("Fire Effect")]
     [SerializeField]
     private GameObject                  muzzleFlashEffect;         // 총구 이펙트(on/off) 
+    [SerializeField]
+    private GameObject                  bullet;                    // 총알
 
     [Header("Spawn Points")]
     [SerializeField]
     private Transform                   casingSpawnPoint;         // 탄피 생성 위치
+    [SerializeField]
+    private Transform                   bulletSpawnPoint;         // 총알 생성 위치
 
     [Header("Audio Clips")]
     [SerializeField] 
@@ -33,12 +39,22 @@ public class WeaponAssultRifle : MonoBehaviour
     [SerializeField] 
     private WeaponSetting               weaponSetting;
 
+    [Header("Weapon UI")]
+    [SerializeField]
+    private Image                       imageAim;                 // 조준 상태에 따라 Aim이미지 관리 
+
     private float                       lastAttackTime = 0;       // 마지막 발사시간 채크용
     private bool                        isReload = false;         // 재장전 채크용
+    private bool                        isAttack = false;
+    private bool                        isModeChange = false;
+    private float                       defaultModeFOV = 60;
+    private float                       aimModeFOV = 30;
 
     private AudioSource                 audioSource;
     private PlayerAnimationController   playerAni;
     private CasingMemoryPool            casingMemoryPool;
+    private ImpactMemoryPool            impactMemoryPool;
+    private Camera                      mainCamera;         // Ray 발사
 
     // 외부에서 필요한 정보를 열람하기 위해 정의한 Get Property's
     public WeaponName WeaponName => weaponSetting.weaponName;
@@ -50,6 +66,8 @@ public class WeaponAssultRifle : MonoBehaviour
         audioSource         = GetComponent<AudioSource>();
         playerAni           = GetComponentInParent<PlayerAnimationController>();
         casingMemoryPool    = GetComponent<CasingMemoryPool>();
+        impactMemoryPool    = GetComponent<ImpactMemoryPool>();
+        mainCamera          = Camera.main;
 
         weaponSetting.curMagazine = weaponSetting.maxMagazine;
 
@@ -103,6 +121,7 @@ public class WeaponAssultRifle : MonoBehaviour
         // 현재 재장전 중이면 재장전 불가능
         if (isReload == true || weaponSetting.curMagazine <= 0) return;
 
+        // 현재 탄수가 최대일때 재장전 불가능
         if (weaponSetting.curAmmo == weaponSetting.maxAmmo) return;
 
         // 무기 액션 도중에 'R'키를 눌러 재장전을 시도하면 무기 액션 종료 후 재장전
@@ -153,6 +172,8 @@ public class WeaponAssultRifle : MonoBehaviour
 
             // 탄피 생성
             casingMemoryPool.SpawnCasing(casingSpawnPoint.position, transform.right);
+
+            TwoStepRaycast();
         }
     }
 
@@ -180,6 +201,9 @@ public class WeaponAssultRifle : MonoBehaviour
             if (audioSource.isPlaying == false && playerAni.CurrentAnimationIs("Movement"))
             {
                 isReload = false;
+                // 현재 탄창수를 1 감소시키고,바뀐탄창 정보를 Text UI에 업데이트
+                weaponSetting.curMagazine--;
+                onMagazineEvent.Invoke(weaponSetting.curMagazine);
 
                 //현재 탄 수를 최대로 설정하고, 바뀐 탄수의 정보를 Text UI에 업데이트 
                 weaponSetting.curAmmo = weaponSetting.maxAmmo;
@@ -198,5 +222,41 @@ public class WeaponAssultRifle : MonoBehaviour
         audioSource.Stop();             // 기존 사운드 정지
         audioSource.clip = newClip;     // 클립에 새로운 클립 적용
         audioSource.Play();             // 적용한 클립 재생
+    }
+
+    private void TwoStepRaycast()
+    {
+        Ray                 ray;
+        RaycastHit          hit;
+        Vector3             targetPoint = Vector3.zero;
+
+        // 화면의 중앙 좌표(Aim 기준으로 Raycast 연산)
+        ray = mainCamera.ViewportPointToRay(Vector2.one * 0.5f);
+
+        //공격 사거리(attackDistance)안에 부딪히는 오브젝트가 있으면 
+        // targetPoint는 광선에 부딪힌 위치
+        if(Physics.Raycast(ray,out hit,weaponSetting.AttackDis))
+        {
+            targetPoint = hit.point;
+        }
+
+        // 공격 사거리 안에 부딪히는 오브젝트 없으면
+        // targetPoint는 최대 사거리 위치
+        else
+        {
+            targetPoint = ray.origin + ray.direction * weaponSetting.AttackDis;
+        }
+        Debug.DrawRay(ray.origin, ray.direction * weaponSetting.AttackDis, Color.red);
+
+        // 첫번째 Raycast 연산으로 얻어진 targetPoint를 목표지점으로 설정,
+        // 총구의 시작점으로 하여 Raycast 연산
+        Vector3 attackDir = (targetPoint - bulletSpawnPoint.position).normalized;
+
+        if(Physics.Raycast(bulletSpawnPoint.position,attackDir,out hit, weaponSetting.AttackDis))
+        {
+            impactMemoryPool.SpawnImpact(hit);
+        }
+        Debug.DrawRay(bulletSpawnPoint.position, attackDir * weaponSetting.AttackDis, Color.blue);
+        
     }
 }

@@ -10,7 +10,7 @@ public class CasingMemoryPool : MonoBehaviour
 
     private void Awake()
     {
-        memoryPool = new MemoryPool(casingPrefab);       
+        memoryPool = new MemoryPool(casingPrefab);  
     }
 
     public void SpawnCasing(Vector3 position, Vector3 dir)

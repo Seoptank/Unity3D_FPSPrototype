@@ -22,6 +22,12 @@ public class PlayerAnimationController : MonoBehaviour
         ani.SetTrigger("OnReload");
     }
 
+    public bool AimModeIs
+    {
+        set => ani.SetBool("IsAimMode", value);
+        get => ani.GetBool("IsAimMode");
+    }
+
     public void Play(string stateName,int layer,float normalizedTime)
     {
         ani.Play(stateName, layer, normalizedTime);
