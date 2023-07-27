@@ -47,6 +47,7 @@ public class WeaponAssultRifle : MonoBehaviour
     private bool                        isReload = false;         // 재장전 채크용
     private bool                        isAttack = false;         // 공격 유무 채크
     private bool                        isModeChange = false;     // 모드 전환 여부 채크 
+    private float                       curFOV;                   // 현재 FOV 상태 저장
     private float                       defaultModeFOV = 60;      // 기본 FOV
     private float                       aimModeFOV = 30;          // aim모드 FOV
 
@@ -60,6 +61,10 @@ public class WeaponAssultRifle : MonoBehaviour
     public WeaponName WeaponName => weaponSetting.weaponName;
     public int CurMagazine => weaponSetting.curMagazine;
     public int MaxMagazine => weaponSetting.maxMagazine;
+
+    private float cur = 0;
+    private float percent = 0;
+    private float time = 0.35f;
 
     private void Awake()
     {
@@ -130,6 +135,10 @@ public class WeaponAssultRifle : MonoBehaviour
             isAttack = false;
             StopCoroutine("OnAttackLoop");
         }
+        else
+        {
+            StartCoroutine("OffAimChange");
+        }
     }
 
     public void StartReload()
@@ -182,10 +191,11 @@ public class WeaponAssultRifle : MonoBehaviour
             string animation = playerAni.AimModeIs == true ? "AimFire" : "Fire";
             playerAni.Play(animation, -1, 0);
 
+            // 총구 이펙트 재생(default모드일때만 재생)
             if (playerAni.AimModeIs == false) StartCoroutine("OnMuzzleFlashEffect");
 
             //총구 이펙트 재생
-            StartCoroutine("OnMuzzleFlashEffect");
+            //StartCoroutine("OnMuzzleFlashEffect");
             
             // 공격 사운드 재생 
             PlaySound(fire);
@@ -237,12 +247,6 @@ public class WeaponAssultRifle : MonoBehaviour
         
     }
 
-    private void PlaySound(AudioClip newClip)
-    {
-        audioSource.Stop();             // 기존 사운드 정지
-        audioSource.clip = newClip;     // 클립에 새로운 클립 적용
-        audioSource.Play();             // 적용한 클립 재생
-    }
 
     private void TwoStepRaycast()
     {
@@ -280,27 +284,48 @@ public class WeaponAssultRifle : MonoBehaviour
         
     }
 
-    private IEnumerator OnModeChange()
+    private IEnumerator OnAimChange()
     {
-        float cur           = 0;
-        float percent       = 0;
-        float time          = 0.35f;
 
-        playerAni.AimModeIs = !playerAni.AimModeIs;
-        imageAim.enabled    = !imageAim.enabled;
+        playerAni.AimModeIs = true;
+        imageAim.enabled    = false;
 
         float start         = mainCamera.fieldOfView;
-        float end           = playerAni.AimModeIs == true ? aimModeFOV : defaultModeFOV;
-
+        float end           = aimModeFOV;
+        
         isModeChange        = true;
 
-        while(percent<1)
+        while(percent < 1)
         {
             cur     += Time.deltaTime;
             percent = cur / time;
 
             // Mode에 따라 카메라 시야각 변경
-            mainCamera.fieldOfView = Mathf.Lerp(start,end,percent);
+            mainCamera.fieldOfView = Mathf.Lerp(start, end, percent);
+
+            yield return null;
+        }
+
+        isModeChange = false;
+    }
+
+    private IEnumerator OffAimChange()
+    {
+        playerAni.AimModeIs = false;
+        imageAim.enabled = true;
+
+        float start = mainCamera.fieldOfView;
+        float end = playerAni.AimModeIs == true ? aimModeFOV : defaultModeFOV;
+
+        isModeChange = true;
+
+        while (percent < 1)
+        {
+            cur += Time.deltaTime;
+            percent = cur / time;
+
+            // Mode에 따라 카메라 시야각 변경
+            mainCamera.fieldOfView = Mathf.Lerp(start, end, percent);
 
             yield return null;
         }
@@ -313,5 +338,17 @@ public class WeaponAssultRifle : MonoBehaviour
         isReload        = false;
         isAttack        = false;
         isModeChange    = false;
+    }
+
+    private void PlaySound(AudioClip newClip)
+    {
+        audioSource.Stop();             // 기존 사운드 정지
+        audioSource.clip = newClip;     // 클립에 새로운 클립 적용
+        audioSource.Play();             // 적용한 클립 재생
+    }
+
+    public void FireModeChange()
+    {
+        weaponSetting.isAutometicAttack = !weaponSetting.isAutometicAttack;
     }
 }

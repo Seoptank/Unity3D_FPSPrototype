@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private KeyCode jumpKey = KeyCode.Space;     // 점프 키
     [SerializeField]
     private KeyCode reloadKey = KeyCode.R;       // 재장전 키
+    [SerializeField]
+    private KeyCode fireModechangeKey = KeyCode.V;       // 재장전 키
 
     [Header("Audio Clips")]
     [SerializeField]
@@ -117,7 +119,7 @@ public class PlayerController : MonoBehaviour
         {
             weapon.StartWeaponAction(1);
         }
-        else if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(1))
         {
             weapon.StopWeaponAction(1);
         }
@@ -125,6 +127,11 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(reloadKey))
         {
             weapon.StartReload();
+        }
+
+        if(Input.GetKeyDown(fireModechangeKey))
+        {
+            weapon.FireModeChange();
         }
     }
 }
