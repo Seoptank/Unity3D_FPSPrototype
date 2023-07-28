@@ -62,10 +62,8 @@ public class WeaponAssultRifle : MonoBehaviour
     public int CurMagazine => weaponSetting.curMagazine;
     public int MaxMagazine => weaponSetting.maxMagazine;
 
-    private float cur = 0;
-    private float percent = 0;
-    private float time = 0.35f;
-
+   
+    
     private void Awake()
     {
         audioSource         = GetComponent<AudioSource>();
@@ -123,7 +121,9 @@ public class WeaponAssultRifle : MonoBehaviour
             // 공격 중일 때는 모든 전환을 할 수 없다.
             if (isAttack == true) return;
 
-            StartCoroutine("OnModeChange");
+            playerAni.AimModeIs = true;
+            imageAim.enabled = false;
+            StartCoroutine("AimChange");
         }
     }
 
@@ -137,7 +137,9 @@ public class WeaponAssultRifle : MonoBehaviour
         }
         else
         {
-            StartCoroutine("OffAimChange");
+            playerAni.AimModeIs = false;
+            imageAim.enabled = true;
+            StartCoroutine("AimChange");
         }
     }
 
@@ -148,6 +150,10 @@ public class WeaponAssultRifle : MonoBehaviour
 
         // 현재 탄수가 최대일때 재장전 불가능
         if (weaponSetting.curAmmo == weaponSetting.maxAmmo) return;
+
+        playerAni.AimModeIs = false;
+        imageAim.enabled    = true;
+        StartCoroutine("AimChange");
 
         // 무기 액션 도중에 'R'키를 눌러 재장전을 시도하면 무기 액션 종료 후 재장전
         StopWeaponAction();
@@ -284,42 +290,18 @@ public class WeaponAssultRifle : MonoBehaviour
         
     }
 
-    private IEnumerator OnAimChange()
+    private IEnumerator AimChange()
     {
+        float cur = 0;
+        float percent = 0;
+        float time = 0.35f;
 
-        playerAni.AimModeIs = true;
-        imageAim.enabled    = false;
-
-        float start         = mainCamera.fieldOfView;
-        float end           = aimModeFOV;
-        
         isModeChange        = true;
 
-        while(percent < 1)
-        {
-            cur     += Time.deltaTime;
-            percent = cur / time;
-
-            // Mode에 따라 카메라 시야각 변경
-            mainCamera.fieldOfView = Mathf.Lerp(start, end, percent);
-
-            yield return null;
-        }
-
-        isModeChange = false;
-    }
-
-    private IEnumerator OffAimChange()
-    {
-        playerAni.AimModeIs = false;
-        imageAim.enabled = true;
-
         float start = mainCamera.fieldOfView;
-        float end = playerAni.AimModeIs == true ? aimModeFOV : defaultModeFOV;
+        float end   = playerAni.AimModeIs == true ? aimModeFOV : defaultModeFOV;
 
-        isModeChange = true;
-
-        while (percent < 1)
+        while(percent < 1)
         {
             cur += Time.deltaTime;
             percent = cur / time;
