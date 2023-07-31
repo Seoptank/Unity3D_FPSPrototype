@@ -134,4 +134,14 @@ public class PlayerController : MonoBehaviour
             weapon.FireModeChange();
         }
     }
+
+    public void TakeDamage(int damage)
+    {
+        bool isDie = playerState.DecreaseHP(damage);
+
+        if(isDie == true)
+        {
+            Debug.Log("GameOver");
+        }
+    }
 }

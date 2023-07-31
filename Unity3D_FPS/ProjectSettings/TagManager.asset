@@ -9,6 +9,7 @@ TagManager:
   - ExplosiveBarrel
   - ImpactNormal
   - ImpactObstacle
+  - ImpactEnemy
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,7 @@ public class EnemyProjectile : MonoBehaviour
 {
     private MovementTransform   movement;
     private float               projectileDis = 30; // 발사체 최대 사거리
+    private int                 damage = 5;
 
     public void Setup(Vector3 position)
     {
@@ -39,7 +40,9 @@ public class EnemyProjectile : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Debug.Log(" 플레이어 피격");
+            //Debug.Log(" 플레이어 피격");
+            other.GetComponent<PlayerController>().TakeDamage(damage);
+
             Destroy(gameObject);
         }
     }

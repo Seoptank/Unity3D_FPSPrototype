@@ -285,6 +285,11 @@ public class WeaponAssultRifle : MonoBehaviour
         if(Physics.Raycast(bulletSpawnPoint.position,attackDir,out hit, weaponSetting.AttackDis))
         {
             impactMemoryPool.SpawnImpact(hit);
+
+            if(hit.transform.CompareTag("ImpactEnemy"))
+            {
+                hit.transform.GetComponent<EnemyFSM>().TakeDamege(weaponSetting.damage);
+            }
         }
         Debug.DrawRay(bulletSpawnPoint.position, attackDir * weaponSetting.AttackDis, Color.blue);
         

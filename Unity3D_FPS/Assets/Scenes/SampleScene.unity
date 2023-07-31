@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 518901622}
+  status: {fileID: 1976485850}
   textWeaponName: {fileID: 1892119394}
   imageWeaponIcon: {fileID: 545776841}
   spriteWeaponIcons:
@@ -294,6 +295,32 @@ MonoBehaviour:
   textAmmo: {fileID: 1256833032}
   magazineUIPrefab: {fileID: 2108822382284467231, guid: b35aadd9550b8a14c92ef01c69c3328d, type: 3}
   magazineParent: {fileID: 1223355645}
+  textHP: {fileID: 974004519}
+  imageBloodScreen: {fileID: 2072582097}
+  curveBloodScreen:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &263514889
 Transform:
   m_ObjectHideFlags: 0
@@ -889,6 +916,7 @@ MonoBehaviour:
   reload: {fileID: 8300000, guid: d5bf691a799b5e5489b979569d0d6de4, type: 3}
   weaponSetting:
     weaponName: 0
+    damage: 50
     curMagazine: 0
     maxMagazine: 8
     curAmmo: 0
@@ -925,6 +953,7 @@ MonoBehaviour:
   impactPrefab:
   - {fileID: 8826017741068736716, guid: af59670db009e0447b137e115358c14b, type: 3}
   - {fileID: 8826017741068736716, guid: e7976f90033ef9048aceec059d08ee44, type: 3}
+  - {fileID: 8826017741068736716, guid: 371c0172533a61a428683faa91d6678f, type: 3}
 --- !u!1 &545776838
 GameObject:
   m_ObjectHideFlags: 0
@@ -2737,7 +2766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.9411765}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -115,7 +115,10 @@ public class PlayerHUD : MonoBehaviour
             percent += Time.deltaTime;
 
             Color color = imageBloodScreen.color;
-            color.a = Mathf.Lerp
+            color.a = Mathf.Lerp(1, 0, curveBloodScreen.Evaluate(percent));
+            imageBloodScreen.color = color;
+
+            yield return null;
         }
     }
 }

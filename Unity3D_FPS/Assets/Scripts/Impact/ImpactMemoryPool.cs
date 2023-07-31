@@ -6,6 +6,7 @@ public enum ImpactType
 {
     NORMAL = 0,
     OBSTACLE,
+    ENEMY,  
 }
 
 public class ImpactMemoryPool : MonoBehaviour
@@ -33,6 +34,10 @@ public class ImpactMemoryPool : MonoBehaviour
         else if(hit.transform.CompareTag("ImpactObstacle"))
         {
             OnSpawnImpact(ImpactType.OBSTACLE, hit.point, Quaternion.LookRotation(hit.normal));
+        }
+        else if(hit.transform.CompareTag("ImpactEnemy"))
+        {
+            OnSpawnImpact(ImpactType.ENEMY, hit.point, Quaternion.LookRotation(hit.normal));
         }
     }
 
