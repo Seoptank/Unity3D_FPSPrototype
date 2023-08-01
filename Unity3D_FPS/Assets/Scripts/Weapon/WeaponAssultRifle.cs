@@ -281,7 +281,6 @@ public class WeaponAssultRifle : MonoBehaviour
         // 첫번째 Raycast 연산으로 얻어진 targetPoint를 목표지점으로 설정,
         // 총구의 시작점으로 하여 Raycast 연산
         Vector3 attackDir = (targetPoint - bulletSpawnPoint.position).normalized;
-
         if(Physics.Raycast(bulletSpawnPoint.position,attackDir,out hit, weaponSetting.AttackDis))
         {
             impactMemoryPool.SpawnImpact(hit);
@@ -289,6 +288,10 @@ public class WeaponAssultRifle : MonoBehaviour
             if(hit.transform.CompareTag("ImpactEnemy"))
             {
                 hit.transform.GetComponent<EnemyFSM>().TakeDamege(weaponSetting.damage);
+            }
+            else if(hit.transform.CompareTag("InteractionObject"))
+            {
+                hit.transform.GetComponent<InteractionObject>().TakeDamage(weaponSetting.damage);
             }
         }
         Debug.DrawRay(bulletSpawnPoint.position, attackDir * weaponSetting.AttackDis, Color.blue);
