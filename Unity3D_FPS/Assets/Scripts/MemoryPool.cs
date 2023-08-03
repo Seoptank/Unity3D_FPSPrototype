@@ -21,6 +21,8 @@ public class MemoryPool
     public int MaxCount     => maxCount;        // 현재 리스트에 등록된 오브젝트 개수 확인을 위한 프로퍼티
     public int ActiveCount  => activeCount;     // 현재 활성화된 오브젝트 개수 확인을 위한 프로퍼티
 
+    private Vector3 tempPosition = new Vector3(48, 1, 48);
+
     public MemoryPool(GameObject poolObj)
     {
         maxCount = 0;
@@ -43,6 +45,7 @@ public class MemoryPool
 
             poolItem.isActive = false;
             poolItem.gameObj = GameObject.Instantiate(poolObj) ;
+            poolItem.gameObj.transform.position = tempPosition;
             poolItem.gameObj.SetActive(false);
 
             poolItemList.Add(poolItem);
@@ -109,6 +112,7 @@ public class MemoryPool
             {
                 activeCount--;
 
+                poolItem.gameObj.transform.position = tempPosition;
                 poolItem.isActive = false;
                 poolItem.gameObj.SetActive(false);
 
@@ -129,6 +133,7 @@ public class MemoryPool
 
             if (poolItem.gameObj != null && poolItem.isActive == true)
             {
+                poolItem.gameObj.transform.position = tempPosition;
                 poolItem.isActive = false;
                 poolItem.gameObj.SetActive(false);
 

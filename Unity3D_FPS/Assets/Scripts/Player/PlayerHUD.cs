@@ -6,9 +6,9 @@ using TMPro;
 
 public class PlayerHUD : MonoBehaviour
 {
+    private WeaponBase              weapon;                 // 현재 정보가 출력되는 무기
+
     [Header("Components")]
-    [SerializeField]
-    private WeaponAssultRifle       weapon;                 // 현재 정보가 출력되는 무기
     [SerializeField]
     private Status                  status;                 // 플레이어 상태( 이동속도, 체력 등)
 
@@ -19,6 +19,8 @@ public class PlayerHUD : MonoBehaviour
     private Image                   imageWeaponIcon;        // 무기 아이콘
     [SerializeField]                                        
     private Sprite[]                spriteWeaponIcons;      // 무기 아이콘에 사용되는 Sprite 배열
+    [SerializeField]
+    private Vector2[]               sizeWeaponIcons;        // 무기 아이콘의 UI 크기 배열
 
     [Header("Ammo")]
     [SerializeField]
@@ -29,6 +31,8 @@ public class PlayerHUD : MonoBehaviour
     private GameObject              magazineUIPrefab;       // 탄창 UI Prefab
     [SerializeField]                                        
     private Transform               magazineParent;         // 탄창UI의 부모 Panel
+    [SerializeField]
+    private int                     maxMagazineCount;       // 처음 생성하는 최대 탄창 수 
                                                             
     private List<GameObject>        magazineList;           // 탄창 UI 리스트
 
@@ -42,18 +46,32 @@ public class PlayerHUD : MonoBehaviour
 
     private void Awake()
     {
-        SetupWeapon();
-        SetupMagazine();
-
-        weapon.onAmmoEvent.AddListener(UpdateAmmoHUD);
-        weapon.onMagazineEvent.AddListener(UpdateMagazineHUD);
         status.onHPEvent.AddListener(UpdateHPHUD);
     }
 
+    public void SetupAllWeapons(WeaponBase[] weapons)
+    {
+        SetupMagazine();
+
+        for (int i = 0; i < weapons.Length; ++i)
+        {
+            weapons[i].onAmmoEvent.AddListener(UpdateAmmoHUD);
+            weapons[i].onMagazineEvent.AddListener(UpdateMagazineHUD);
+        }
+    }
+
+    public void SwitchingWeapon(WeaponBase newWeapon)
+    {
+        weapon = newWeapon;
+
+        SetupWeapon();
+    }
     private void SetupWeapon()
     {
+
         textWeaponName.text = weapon.WeaponName.ToString();
         imageWeaponIcon.sprite = spriteWeaponIcons[(int)weapon.WeaponName];
+        imageWeaponIcon.rectTransform.sizeDelta = sizeWeaponIcons[(int)weapon.WeaponName];
     }
 
     private void UpdateAmmoHUD(int curAmmo, int maxAmmo)
@@ -66,19 +84,13 @@ public class PlayerHUD : MonoBehaviour
         // weapon의 최대 탄창 갯수만큼 Image Icon 생성,
         // magazineParent 오브젝트 자식으로 등록 후 모두 비활성화/리스트에 저장
         magazineList = new List<GameObject>();
-        for (int i = 0; i < weapon.MaxMagazine; ++i)
+        for (int i = 0; i < maxMagazineCount; ++i)
         {
             GameObject clone = Instantiate(magazineUIPrefab);
             clone.transform.SetParent(magazineParent);
             clone.SetActive(false);
 
             magazineList.Add(clone);
-        }
-
-        // weapon에 등록되어있는 현재 탄창 개수만큼 오브젝트 활성화
-        for (int i = 0; i < weapon.MaxMagazine; ++i)
-        {
-            magazineList[i].SetActive(true);
         }
     }
 

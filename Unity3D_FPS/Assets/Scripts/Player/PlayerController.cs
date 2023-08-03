@@ -6,13 +6,13 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Input KeyCodes")]
     [SerializeField]
-    private KeyCode runKey  = KeyCode.LeftShift; // 달리기 키
+    private KeyCode runKey  = KeyCode.LeftShift;    // 달리기 키
     [SerializeField]
-    private KeyCode jumpKey = KeyCode.Space;     // 점프 키
+    private KeyCode jumpKey = KeyCode.Space;        // 점프 키
     [SerializeField]
-    private KeyCode reloadKey = KeyCode.R;       // 재장전 키
+    private KeyCode reloadKey = KeyCode.R;          // 재장전 키
     [SerializeField]
-    private KeyCode fireModechangeKey = KeyCode.V;       // 재장전 키
+    private KeyCode fireModechangeKey = KeyCode.V;  // 단발/연발 전환 키
 
     [Header("Audio Clips")]
     [SerializeField]
@@ -20,12 +20,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private AudioClip runClip;
 
-    private RotateToMouse               rotateToMouse;
-    private PlayerMovement              movement;
-    private Status                      playerState;
-    private PlayerAnimationController   playerAni;
-    private AudioSource                 audioSource;
-    private WeaponAssultRifle           weapon;
+    private RotateToMouse               rotateToMouse;      // 마우스 이동으로 카메라 회전
+    private PlayerMovement              movement;           // 키보드 입력으로 플레이어 이동, 점프
+    private Status                      playerState;        // 플레이어 정보
+    private AudioSource                 audioSource;        // 사운드 재생 제어
+    private WeaponBase                  weapon;             // 모든 무기가 상속받는 기반 클래스
     
     private void Awake()
     {
@@ -35,9 +34,7 @@ public class PlayerController : MonoBehaviour
         rotateToMouse = GetComponent<RotateToMouse>();
         movement      = GetComponent<PlayerMovement>();
         playerState   = GetComponent<Status>();
-        playerAni     = GetComponent<PlayerAnimationController>();
         audioSource   = GetComponent<AudioSource>();
-        weapon        = GetComponentInChildren<WeaponAssultRifle>();
     }
 
     private void Update()
@@ -71,7 +68,7 @@ public class PlayerController : MonoBehaviour
                 isRun = Input.GetKey(runKey);
 
             movement.MoveSpeed  = isRun == true ? playerState.RunSpeed : playerState.WalkSpeed;
-            playerAni.MoveSpeed = isRun == true ? 1 : 0.5f;
+            weapon.Animator.MoveSpeed = isRun == true ? 1 : 0.5f;
             audioSource.clip    = isRun == true ? runClip : walkClip;
 
             // 오디오 재생중일 경우 다시 재생하지 않도록 isPlaying으로 채크해 재생
@@ -86,7 +83,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             movement.MoveSpeed  = 0.0f;
-            playerAni.MoveSpeed = 0.0f;
+            weapon.Animator.MoveSpeed = 0.0f;
 
             if(audioSource.isPlaying == true)
             {
@@ -131,7 +128,7 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKeyDown(fireModechangeKey))
         {
-            weapon.FireModeChange();
+            weapon.GetComponent<WeaponAssultRifle>().FireModeChange();
         }
     }
 
@@ -143,5 +140,10 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("GameOver");
         }
+    }
+
+    public void SwitchingWeapon(WeaponBase newWeapon)
+    {
+        weapon = newWeapon;
     }
 }

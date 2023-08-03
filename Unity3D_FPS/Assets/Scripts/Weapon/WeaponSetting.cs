@@ -1,4 +1,4 @@
-public enum WeaponName { ASSULTRIFLE =0}
+public enum WeaponName { ASSULTRIFLE =0,REVOLVER,KNIFE,GRANADE}
 
 [System.Serializable]
 public struct WeaponSetting

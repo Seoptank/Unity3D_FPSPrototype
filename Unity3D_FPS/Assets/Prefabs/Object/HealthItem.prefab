@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8948611162294754198}
   - component: {fileID: 2150467136563999914}
   - component: {fileID: 1365365298661656930}
+  - component: {fileID: 4786019660282170356}
   m_Layer: 0
   m_Name: HealthItem
   m_TagString: Item
@@ -97,3 +98,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4786019660282170356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7844332392310722667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 985ec4205210ba64f93a8639f38e99ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpEffectPrefab: {fileID: 7113002088318682206, guid: bdd02454d0068294389d33d7dfc392e3, type: 3}
+  increaseHP: 50
+  moveDis: 0.2
+  pingpongSpeed: 0.5
+  rotateSpeed: 50

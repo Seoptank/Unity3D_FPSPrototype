@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemMedicBag : MonoBehaviour
+public class ItemMedicBag : ItemBase
 {
     [SerializeField]
     private GameObject      hpEffectPrefab;
@@ -20,5 +20,25 @@ public class ItemMedicBag : MonoBehaviour
         float y = transform.position.y;
 
         while(true)
+        {
+            // y축을 기준으로 회전
+            transform.Rotate(Vector3.up * rotateSpeed * Time.deltaTime);
+
+            // 처음 배치된 위치를 기준으로 y위치를 위, 아래로 이동
+            Vector3 position = transform.position;
+            position.y = Mathf.Lerp(y, y + moveDis, Mathf.PingPong(Time.time * pingpongSpeed, 1));
+            transform.position = position;
+
+            yield return null;
+        }
+    }
+
+    public override void Use(GameObject entity)
+    {
+        entity.GetComponent<Status>().IncreaseHP(increaseHP);
+
+        Instantiate(hpEffectPrefab, transform.position, Quaternion.identity);
+
+        Destroy(gameObject);
     }
 }

@@ -20,6 +20,7 @@ public class PlayerAnimationController : MonoBehaviour
     public void OnReload()
     {
         ani.SetTrigger("OnReload");
+        Debug.Log("Reload");
     }
 
     public bool AimModeIs
@@ -36,5 +37,10 @@ public class PlayerAnimationController : MonoBehaviour
     public bool CurrentAnimationIs(string name)
     {
         return ani.GetCurrentAnimatorStateInfo(0).IsName(name);
+    }
+
+    public void SetFloat(string paramName,float value)
+    {
+        ani.SetFloat(paramName, value);
     }
 }
