@@ -388,6 +388,7 @@
 "Assets/Scripts/Weapon/CasingMemoryPool.cs"
 "Assets/Scripts/Weapon/KnifeCollider.cs"
 "Assets/Scripts/Weapon/WeaponBase.cs"
+"Assets/Scripts/Weapon/Weapons/GradeProjectile.cs"
 "Assets/Scripts/Weapon/Weapons/WeaponAssultRifle.cs"
 "Assets/Scripts/Weapon/Weapons/WeaponGranade.cs"
 "Assets/Scripts/Weapon/Weapons/WeaponKnife.cs"
