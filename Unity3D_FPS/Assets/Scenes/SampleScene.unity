@@ -1587,6 +1587,12 @@ MonoBehaviour:
   fire: {fileID: 8300000, guid: 6bdae35d4ae313648a325e6401656f99, type: 3}
   reload: {fileID: 8300000, guid: 5b907074256e36d41b92e89fb0790633, type: 3}
   imageAim: {fileID: 386045070}
+  minX: -1
+  maxX: 1
+  minY: 0.1
+  maxY: 2
+  cameraTransform: {fileID: 963194228}
+  rot: {x: 0, y: 0, z: 0}
 --- !u!114 &518901624
 MonoBehaviour:
   m_ObjectHideFlags: 0

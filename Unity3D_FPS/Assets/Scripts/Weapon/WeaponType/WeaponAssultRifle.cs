@@ -32,6 +32,14 @@ public class WeaponAssultRifle : WeaponBase
     [SerializeField]
     private Image                       imageAim;                 // 조준 상태에 따라 Aim이미지 관리
 
+    [Header("Recoil")]
+    [SerializeField]
+    private float                        minX, maxX, minY, maxY;
+    [SerializeField]
+    private Transform                   cameraTransform;
+    [SerializeField]
+    private Vector3                     rot;
+
     private bool                        isModeChange = false;     // 모드 전환 여부 채크 
 
     private CasingMemoryPool            casingMemoryPool;
@@ -48,6 +56,7 @@ public class WeaponAssultRifle : WeaponBase
         weaponSetting.curMagazine = weaponSetting.maxMagazine;
 
         weaponSetting.curAmmo = weaponSetting.maxAmmo;
+
     }
 
     private void OnEnable()
@@ -63,6 +72,16 @@ public class WeaponAssultRifle : WeaponBase
 
         ResetVariables();
     }
+
+    private void Update()
+    {
+        rot = cameraTransform.transform.localRotation.eulerAngles;
+        if (rot.x != 0 || rot.y != 0)
+        {
+            cameraTransform.transform.localRotation = Quaternion.Slerp(cameraTransform.transform.localRotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * 3);
+        }
+    }
+
     public override void StartWeaponAction(int type = 0)
     {
         // 재장전중일때 무기 액션을 할수 없다.
@@ -156,6 +175,7 @@ public class WeaponAssultRifle : WeaponBase
             {
                 return;
             }
+            OnRecoil();
 
             weaponSetting.curAmmo--;
             onAmmoEvent.Invoke(weaponSetting.curAmmo, weaponSetting.maxAmmo);
@@ -294,10 +314,13 @@ public class WeaponAssultRifle : WeaponBase
         weaponSetting.isAutometicAttack = !weaponSetting.isAutometicAttack;
     }
 
-    //public void IncreaseMagazine(int magazine)
-    //{
-    //    weaponSetting.curMagazine = CurMagazine + magazine > MaxMagazine ? MaxMagazine : CurMagazine + magazine;
-    //
-    //    onMagazineEvent.Invoke(CurMagazine);
-    //}
+    public void OnRecoil()
+    {
+        float recX = Random.Range(minX, maxX);
+        float recY = Random.Range(minY, maxY);
+        cameraTransform.transform.localRotation = Quaternion.Euler(rot.x + recY, rot.y * recX, rot.z);
+
+        
+    }
+
 }
