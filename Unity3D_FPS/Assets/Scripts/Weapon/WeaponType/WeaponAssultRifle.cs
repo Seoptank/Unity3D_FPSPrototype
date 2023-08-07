@@ -12,7 +12,9 @@ public class WeaponAssultRifle : WeaponBase
 {
     [Header("Fire Effect")]
     [SerializeField]
-    private GameObject                  muzzleFlashEffect;         // √—±∏ ¿Ã∆Â∆Æ(on/off) 
+    private GameObject                  muzzleFlashEffect;        // √—±∏ ¿Ã∆Â∆Æ(on/off) 
+    [SerializeField]
+    private GameObject                  bulletMarksPrefab;        // ≈∫»Á «¡∏Æ∆’                  
 
     [Header("Spawn Points")]
     [SerializeField]
@@ -277,7 +279,6 @@ public class WeaponAssultRifle : WeaponBase
             }
         }
         Debug.DrawRay(bulletSpawnPoint.position, attackDir * weaponSetting.AttackDis, Color.blue);
-        
     }
     private IEnumerator AimChange()
     {
