@@ -7,7 +7,7 @@ public class ItemMedicBag : ItemBase
     [SerializeField]
     private GameObject      hpEffectPrefab;
     [SerializeField]
-    private int             increaseHP = 50;
+    private int             increaseHP = 100;
     [SerializeField]
     private float           moveDis = 0.2f;
     [SerializeField]

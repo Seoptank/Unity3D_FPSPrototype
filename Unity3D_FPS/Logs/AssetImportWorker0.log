@@ -1,0 +1,487 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.19f1 (c9714fde33b6) revision 13201743'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22621) 64bit Core' Language: 'ko' Physical Memory: 16167 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/cnpdi/OneDrive/바탕 화면/Code/MyGit/Unity3D_FPSPrototype/Unity3D_FPS
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+56617
+Successfully changed project path to: C:/Users/cnpdi/OneDrive/바탕 화면/Code/MyGit/Unity3D_FPSPrototype/Unity3D_FPS
+C:/Users/cnpdi/OneDrive/바탕 화면/Code/MyGit/Unity3D_FPSPrototype/Unity3D_FPS
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [5112] Host "[IP] 192.168.0.98 [Port] 0 [Flags] 2 [Guid] 2126045757 [EditorId] 2126045757 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-8AE8P5P) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [5112] Host "[IP] 192.168.0.98 [Port] 0 [Flags] 2 [Guid] 2126045757 [EditorId] 2126045757 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-8AE8P5P) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+Refreshing native plugins compatible for Editor in 90.39 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.19f1 (c9714fde33b6)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.19f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/cnpdi/OneDrive/바탕 화면/Code/MyGit/Unity3D_FPSPrototype/Unity3D_FPS/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) Iris(R) Xe Graphics (ID=0x9a49)
+    Vendor:   Intel
+    VRAM:     8083 MB
+    Driver:   30.0.101.1692
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.19f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.19f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.19f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56844
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.19f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.014888 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 81.00 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.760 seconds
+Domain Reload Profiling:
+	ReloadAssembly (760ms)
+		BeginReloadAssembly (97ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (522ms)
+			LoadAssemblies (92ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (161ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (30ms)
+			SetupLoadedEditorAssemblies (265ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (81ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (121ms)
+				ProcessInitializeOnLoadMethodAttributes (52ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.008084 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cnpdi\OneDrive\바탕 화면\Code\MyGit\Unity3D_FPSPrototype\Unity3D_FPS\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cnpdi\OneDrive\바탕 화면\Code\MyGit\Unity3D_FPSPrototype\Unity3D_FPS\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.49 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.045 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1046ms)
+		BeginReloadAssembly (153ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (19ms)
+		EndReloadAssembly (754ms)
+			LoadAssemblies (110ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (258ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (45ms)
+			SetupLoadedEditorAssemblies (331ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (92ms)
+				ProcessInitializeOnLoadAttributes (197ms)
+				ProcessInitializeOnLoadMethodAttributes (19ms)
+				AfterProcessingInitializeOnLoad (14ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.57 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3106 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 24 unused Assets / (113.4 KB). Loaded Objects now: 3569.
+Memory consumption went from 112.3 MB to 112.2 MB.
+Total: 3.105700 ms (FindLiveObjects: 0.256200 ms CreateObjectMapping: 0.125800 ms MarkObjects: 2.596000 ms  DeleteObjects: 0.126800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1245099.188227 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38a7050e25b8e71785651e7c88acd149') in 0.092776 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.566644 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5a6f142b9882dc1812f6e2b87afa90a0') in 0.005476 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.724309 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a23ea57ccd5278b43662b8ca9da8e7b') in 0.003200 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 48.455678 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34881fd2003ca3ea1290883611cac81c') in 0.003955 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.653085 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb5408d6c0e63aa9c130b49bc9586187') in 0.002632 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.312490 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb8836e8d006508a7f9e7d3bba702688') in 0.003519 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.572484 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cf75cdb1af9a7abc385d639e46fdeca') in 0.004108 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.616997 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2039a14f6b12b761429a268792d102db') in 0.009661 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 15.019462 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4fd98d3432dded4b78fe6ef57cfea6f') in 0.004826 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.650562 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '072d2421200b48d3691e821ef33beb6a') in 0.005080 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.147213 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0108a86e8359b109a12c533f6084e0ab') in 0.004430 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.723527 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86313b5f2a5161dbfedc1614fe6823a7') in 0.002744 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 26.719131 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3858d080395a5e1a8120844d1ea6ffc') in 0.003154 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.767942 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '908f0c95cbbf37729e196bd46386af49') in 0.004407 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.571863 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd44a35f97f2f823e44fc21eb47e7cd5e') in 0.003696 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.173289 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4be5155b14b2ea6b1b55f31855232700') in 0.003812 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.118179 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c49a674e4b403390b9dbc1704bde72fe') in 0.004291 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 25.325361 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f094d117cba6d19e36e5f21b7dd23f4') in 0.003693 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 32.249796 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf479d82c800c36d742018109cbd0aad') in 0.002863 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.626629 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3ffb18d2aba69882dc0e509f4e56fed') in 0.004234 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.016973 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f49b07a4e687d5184c22ff331d38c30') in 0.005163 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.674694 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a22c266b58128f55586cd8b046d6b79') in 0.003691 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.404041 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '559a1644c07870810aa566e9dc68ab5f') in 0.003791 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 39.718602 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39a8b84053b8b2d6d3fb4d1e10a7d5ff') in 0.003587 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 21.123300 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70a813a8000319b6151a27777babcf05') in 0.003956 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 27.778604 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34369e49c9084c0b51d36834bee27455') in 0.002900 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.470634 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4d332dabacd20d4abc4aecf0ea8418c') in 0.003588 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.366983 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eedd9c7d0db535d47e80a45e4b066f0f') in 0.003968 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 22.404772 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6246f0a657c6658fc8c3f277578c082f') in 0.003482 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.221891 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0d987a304c2cd3702b4015e439b4cf5') in 0.003674 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 57.457528 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aab9ee3d2b69c2be7e8399aeeda8f641') in 0.003413 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.513668 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd23a9301e3aba2e88b45a0ff78571b77') in 0.003740 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.333120 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b09474854716fa54ff37c1a313d14e82') in 0.003968 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.129949 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '956237b533000b657d116c7ca2242da2') in 0.004172 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.736665 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f18fcd4051ce8f9db4e5455ea50b3e1f') in 0.003823 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 28.255766 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '541b297196bdb32803207c540b0428d4') in 0.005547 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.065916 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d7aeb6a1385e4ee9ca25de65c1b6560') in 0.002124 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.072558 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '070d39c9b886e3e954eef9c0da53a79f') in 0.004234 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.980929 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '367a6f3d105cd37830970bd4583f9453') in 0.004189 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.846453 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs
+  artifactKey: Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponGranade.cs using Guid(dbdd567b9fe44de4881eb0b01a6eb626) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3d8cbf6e6ef0a1df21131304e4b2324') in 0.005783 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.021053 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\cnpdi\OneDrive\바탕 화면\Code\MyGit\Unity3D_FPSPrototype\Unity3D_FPS\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\cnpdi\OneDrive\바탕 화면\Code\MyGit\Unity3D_FPSPrototype\Unity3D_FPS\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.65 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.968 seconds
+Domain Reload Profiling:
+	ReloadAssembly (969ms)
+		BeginReloadAssembly (166ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (36ms)
+		EndReloadAssembly (697ms)
+			LoadAssemblies (93ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (265ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (276ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (64ms)
+				ProcessInitializeOnLoadAttributes (169ms)
+				ProcessInitializeOnLoadMethodAttributes (15ms)
+				AfterProcessingInitializeOnLoad (15ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.64 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3088 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 17 unused Assets / (80.4 KB). Loaded Objects now: 3572.
+Memory consumption went from 110.8 MB to 110.7 MB.
+Total: 2.205400 ms (FindLiveObjects: 0.205900 ms CreateObjectMapping: 0.079400 ms MarkObjects: 1.841700 ms  DeleteObjects: 0.077600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 919.012735 seconds.
+  path: Assets/Scripts/Player/PlayerController.cs
+  artifactKey: Guid(c4b80e7cb557bdb4fb9ca0d2d6fcbd85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Player/PlayerController.cs using Guid(c4b80e7cb557bdb4fb9ca0d2d6fcbd85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '773f280792e5c84d79692d456b7d1737') in 0.011083 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.266677 seconds.
+  path: Assets/Scripts/Player/PlayerHUD.cs
+  artifactKey: Guid(f5111cc33c464094185a3ded9579161f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Player/PlayerHUD.cs using Guid(f5111cc33c464094185a3ded9579161f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6fce6a93e15e479620fa124919ce680') in 0.002766 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.749172 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponRevolver.cs
+  artifactKey: Guid(c50e59939fbac784f8a56dbb9ca35879) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponRevolver.cs using Guid(c50e59939fbac784f8a56dbb9ca35879) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5981233af1739c717e894cd03517aeeb') in 0.002496 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.336480 seconds.
+  path: Assets/Scripts/Weapon/WeaponType/WeaponKnife.cs
+  artifactKey: Guid(b728e8d0bff312c4989278bb62042ab6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Weapon/WeaponType/WeaponKnife.cs using Guid(b728e8d0bff312c4989278bb62042ab6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5372ebda0de6d8fde83f328b55566f7') in 0.005188 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.022350 seconds.

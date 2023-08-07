@@ -5,15 +5,15 @@ using UnityEngine;
 public class WeaponSwitchSystem : MonoBehaviour
 {
     [SerializeField]
-    private PlayerController    playerController;
+    private PlayerController playerController;
     [SerializeField]
-    private PlayerHUD           playerHUD;
+    private PlayerHUD playerHUD;
 
     [SerializeField]
-    private WeaponBase[]        weapons;     // 소지중인 무기 4종류
+    private WeaponBase[] weapons;     // 소지중인 무기 4종류
 
-    private WeaponBase          curWeapon;      // 현재 사용중인 무기
-    private WeaponBase          preWeapon;      // 직전 사용했던 무기
+    private WeaponBase curWeapon;      // 현재 사용중인 무기
+    private WeaponBase preWeapon;      // 직전 사용했던 무기
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class WeaponSwitchSystem : MonoBehaviour
         // 현재 소지중인 모든 무기를 보이지 않게 실행
         for (int i = 0; i < weapons.Length; ++i)
         {
-            if(weapons[i].gameObject != null)
+            if (weapons[i].gameObject != null)
             {
                 weapons[i].gameObject.SetActive(false);
             }
@@ -43,7 +43,7 @@ public class WeaponSwitchSystem : MonoBehaviour
 
         // 1~4번 숫자키 누르면 무기 교체
         int inputIndex = 0;
-        if(int.TryParse(Input.inputString,out inputIndex) && (inputIndex>0 && inputIndex < 5))
+        if (int.TryParse(Input.inputString, out inputIndex) && (inputIndex > 0 && inputIndex < 5))
         {
             SwitchingWeapon((WeaponType)(inputIndex - 1));
         }
@@ -52,14 +52,14 @@ public class WeaponSwitchSystem : MonoBehaviour
     private void SwitchingWeapon(WeaponType weaponType)
     {
         // 교체 가능한 무기가 없으면 종료
-        if(weapons[(int)weaponType] == null)
+        if (weapons[(int)weaponType] == null)
         {
             return;
         }
 
 
         // 현재 사용중인 무기가 있으면 이전 무기 정보에 저장
-        if(curWeapon != null)
+        if (curWeapon != null)
         {
             preWeapon = curWeapon;
         }
@@ -68,7 +68,7 @@ public class WeaponSwitchSystem : MonoBehaviour
         curWeapon = weapons[(int)weaponType];
 
         //현재 사용중인 무기로 교체하려고 할 때 종료
-        if(curWeapon == preWeapon)
+        if (curWeapon == preWeapon)
         {
             return;
         }
@@ -85,5 +85,24 @@ public class WeaponSwitchSystem : MonoBehaviour
 
         // 현재 사용하는 무기 활성화
         curWeapon.gameObject.SetActive(true);
+    }
+
+    public void IncreaseMagazine(WeaponType weaponType, int magazine)
+    {
+        // 해당 무기가 있는지 검사
+        if (weapons[(int)weaponType] != null)
+        {
+            weapons[(int)weaponType].IncreaseMagazine(magazine);
+        }
+    }
+    public void IncreaseMagazine(int magazine)
+    {
+        for (int i = 0; i < weapons.Length; ++i)
+        {
+            if (weapons[i] != null)
+            {
+                weapons[i].IncreaseMagazine(magazine);
+            }
+        }
     }
 }

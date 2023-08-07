@@ -24,12 +24,14 @@ public abstract class WeaponBase : MonoBehaviour
     [SerializeField]                                                  
     protected WeaponSetting                 weaponSetting;            // 무기 설정
 
-    protected float                         lastAttackTime = 0;        // 마지막 발사시간 채크
-    protected bool                          isReload = false;          // 재장전 채크
-    protected bool                          isAttack = false;           // 공격중 채크
-    protected AudioSource                   audioSource;               // 사운드 재생 컴포넌트
-    protected PlayerAnimationController     animator;                  // 애니메이션 재생 제어
-
+    protected float                         lastAttackTime = 0;       // 마지막 발사시간 채크
+    protected bool                          isReload = false;         // 재장전 채크
+    protected bool                          isAttack = false;         // 공격중 채크
+    protected AudioSource                   audioSource;              // 사운드 재생 컴포넌트
+    protected PlayerAnimationController     animator;                 // 애니메이션 재생 제어
+    protected Camera                        mainCamera;               // Ray 발사
+    protected float                         defaultModeFOV = 60;      // 기본 FOV
+    protected float                         aimModeFOV = 30;          // aim모드 FOV
     // 외부에서 이벤트 함수 등록을 할수 있도록 public 선언
     [HideInInspector]
     public AmmoEvent                        onAmmoEvent = new AmmoEvent();
@@ -52,13 +54,16 @@ public abstract class WeaponBase : MonoBehaviour
         audioSource.clip = clip;
         audioSource.Play();
     }
-
     protected void Setup()
     {
-        audioSource = GetComponent<AudioSource>();
-        animator    = GetComponent<PlayerAnimationController>(); 
+        audioSource     = GetComponent<AudioSource>();  
+        animator        = GetComponent<PlayerAnimationController>();
+        mainCamera      = Camera.main;
     }
-
-
+    public virtual void IncreaseMagazine(int magazine)
+    {
+        weaponSetting.curMagazine = CurMagazine + magazine > MaxMagazine ? MaxMagazine : CurMagazine + magazine;
+        onMagazineEvent.Invoke(CurMagazine);
+    }
 }
 

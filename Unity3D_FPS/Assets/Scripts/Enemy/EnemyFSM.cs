@@ -214,6 +214,7 @@ public class EnemyFSM : MonoBehaviour
 
                 GameObject clone = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
                 clone.GetComponent<EnemyProjectile>().Setup(target.position);
+                yield break;
             }
 
             yield return null;

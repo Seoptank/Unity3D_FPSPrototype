@@ -13,6 +13,7 @@ public class RotateToMouse : MonoBehaviour
     private float limMaxX = 50.0f;
     private float eulerAngleX;
     private float eulerAngleY;
+    public Vector3 curRotation;
 
     public void RotateTo(float mouseX, float mouseY)
     {

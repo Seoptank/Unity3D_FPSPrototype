@@ -23,7 +23,7 @@ public class ItemMagazine : ItemBase
     }
     public override void Use(GameObject entity)
     {
-        entity.GetComponentInChildren<WeaponAssultRifle>().IncreaseMagazine(increaseMagazine);
+        entity.GetComponentInChildren<WeaponSwitchSystem>().IncreaseMagazine(WeaponType.Main,increaseMagazine);
 
         Instantiate(magazineEffectPrefab, transform.position, Quaternion.identity);
 
