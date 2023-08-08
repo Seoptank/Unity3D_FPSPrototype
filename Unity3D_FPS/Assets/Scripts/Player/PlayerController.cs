@@ -103,6 +103,8 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateWeaponAction()
     {
+        
+
         if(Input.GetMouseButtonDown(0))
         {
             weapon.StartWeaponAction();
@@ -129,6 +131,16 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(fireModechangeKey))
         {
             weapon.GetComponent<WeaponAssultRifle>().FireModeChange();
+        }
+
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            int type = Random.Range(0, 1);
+            weapon.GetComponent<WeaponAssultRifle>().StartKnifeAction(type);
+        }
+        else if(Input.GetKeyUp(KeyCode.C))
+        {
+            weapon.GetComponent<WeaponAssultRifle>().StopKnifeAction();
         }
     }
 

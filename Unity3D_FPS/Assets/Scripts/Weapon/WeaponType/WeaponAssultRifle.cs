@@ -42,6 +42,9 @@ public class WeaponAssultRifle : WeaponBase
     [SerializeField]
     private Vector3                     rot;
 
+    [SerializeField]
+    private KnifeCollider               knifeCollider;
+
     private bool                        isModeChange = false;     // 모드 전환 여부 채크 
 
     private CasingMemoryPool            casingMemoryPool;
@@ -63,6 +66,8 @@ public class WeaponAssultRifle : WeaponBase
 
     private void OnEnable()
     {
+        isAttack = false;
+
         PlaySound(takeout);
         muzzleFlashEffect.SetActive(false);
 
@@ -151,6 +156,8 @@ public class WeaponAssultRifle : WeaponBase
 
         StartCoroutine("OnReload");
     }
+
+
     private IEnumerator OnAttackLoop()
     {
         while(true)
@@ -199,7 +206,6 @@ public class WeaponAssultRifle : WeaponBase
             TwoStepRaycast();
         }
     }
-
     private IEnumerator OnMuzzleFlashEffect()
     {
         muzzleFlashEffect.SetActive(true);
@@ -314,7 +320,6 @@ public class WeaponAssultRifle : WeaponBase
     {
         weaponSetting.isAutometicAttack = !weaponSetting.isAutometicAttack;
     }
-
     public void OnRecoil()
     {
         float recX = Random.Range(minX, maxX);
@@ -324,4 +329,43 @@ public class WeaponAssultRifle : WeaponBase
         
     }
 
+
+    public void StartKnifeAction(int type)
+    {
+        if (isAttack == true) return;
+        StartCoroutine("OnKnifeAttack", type);
+    }
+    public void StopKnifeAction()
+    {
+        isAttack = false;
+        StopCoroutine("OnKnifeAttack");
+    }
+    private IEnumerator OnKnifeAttack(int type)
+    {
+        isAttack = true;
+
+        //공격 모션 선택
+        animator.SetFloat("AttackType", type);
+
+        //공격 애니 재생
+        animator.Play("KnifeFire", -1, 0);
+
+        yield return new WaitForEndOfFrame();
+
+        while(true)
+        {
+            if(animator.CurrentAnimationIs("Movement"))
+            {
+                isAttack = false;
+
+                yield break; 
+            }
+
+            yield return null;
+        }
+    }
+    public void StartWeaponKnifeCollider()
+    {
+        knifeCollider.StartCollider(weaponSetting.damage);
+    }
 }

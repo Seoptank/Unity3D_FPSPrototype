@@ -6,8 +6,6 @@ public enum WeaponType
 { 
     Main = 0,
     Sub,
-    Melee,
-    Throw,
 }
 
 [System.Serializable]

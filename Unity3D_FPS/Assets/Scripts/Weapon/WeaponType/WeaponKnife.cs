@@ -31,6 +31,16 @@ public class WeaponKnife : WeaponBase
     }
     public override void StartWeaponAction(int type = 0)
     {
+    }
+    public override void StopWeaponAction(int type = 0)
+    {
+    }
+    public override void StartReload()
+    {
+    }
+
+    public void StartWeaponKnifeAction(int type = 0)
+    {
         if (isAttack == true) return;
 
         // 연속 공격
@@ -44,15 +54,10 @@ public class WeaponKnife : WeaponBase
             StartCoroutine("OnAttack", type);
         }
     }
-
-    public override void StopWeaponAction(int type = 0)
+    public void StopKnifeWeaponAction(int type = 0)
     {
         isAttack = false;
         StopCoroutine("OnAttackLoop");
-    }
-    public override void StartReload()
-    {
-
     }
 
     private IEnumerator OnAttackLoop(int type)
@@ -71,7 +76,7 @@ public class WeaponKnife : WeaponBase
         animator.SetFloat("AttackType", type);
 
         // 공격 애니메이션 재생
-        animator.Play("Fire", -1, 0);
+        animator.Play("KnifeFire", -1, 0);
 
         yield return new WaitForEndOfFrame();
 
