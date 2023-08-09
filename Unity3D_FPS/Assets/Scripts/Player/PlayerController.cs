@@ -142,6 +142,7 @@ public class PlayerController : MonoBehaviour
         {
             weapon.GetComponent<WeaponAssultRifle>().StopKnifeAction();
         }
+
     }
 
     public void TakeDamage(int damage)

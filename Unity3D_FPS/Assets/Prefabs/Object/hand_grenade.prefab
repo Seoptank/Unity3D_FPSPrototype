@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 992070933709234164}
   - component: {fileID: 8447745916396625875}
   - component: {fileID: 5145074871530924682}
-  - component: {fileID: 7649571179261889444}
+  - component: {fileID: -631581536727461624}
+  - component: {fileID: 4360801198480980256}
   m_Layer: 3
   m_Name: hand_grenade
   m_TagString: Untagged
@@ -115,7 +116,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7649571179261889444
+--- !u!114 &-631581536727461624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,10 +125,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 992070933706965300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25648af0048669f44b92fccc54d1e6f4, type: 3}
+  m_Script: {fileID: 11500000, guid: e75331fc91b08bb4b8ad0ce4452c8deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 5745225347597907532, guid: 703b3f79b7295f141a445cb2c389629a, type: 3}
-  explosionRadius: 10
-  explosionForce: 500
-  throwForce: 1000
+  explosionEffectPrefab: {fileID: 0}
+  explosionPatticleOffset: {x: 0, y: 1, z: 0}
+  explosionDelay: 3
+  explosionForce: 700
+  explosionRadius: 5
+--- !u!114 &4360801198480980256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992070933706965300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75331fc91b08bb4b8ad0ce4452c8deb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionEffectPrefab: {fileID: 5745225347597907532, guid: 703b3f79b7295f141a445cb2c389629a, type: 3}
+  explosionPatticleOffset: {x: 0, y: 1, z: 0}
+  explosionDelay: 3
+  explosionForce: 700
+  explosionRadius: 5
