@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
     private Status                      playerState;        // 플레이어 정보
     private AudioSource                 audioSource;        // 사운드 재생 제어
     private WeaponBase                  weapon;             // 모든 무기가 상속받는 기반 클래스
-    
+    private GranadeThrow                granade;
+
     private void Awake()
     {
         Cursor.visible = false;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
         movement      = GetComponent<PlayerMovement>();
         playerState   = GetComponent<Status>();
         audioSource   = GetComponent<AudioSource>();
+        granade       = GetComponent<GranadeThrow>();
     }
 
     private void Update()
@@ -142,7 +144,6 @@ public class PlayerController : MonoBehaviour
         {
             weapon.GetComponent<WeaponAssultRifle>().StopKnifeAction();
         }
-
     }
 
     public void TakeDamage(int damage)

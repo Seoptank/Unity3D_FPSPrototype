@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\InteractionObj\ExplosionBarrel.cs" />
     <Compile Include="Assets\Scripts\Weapon\WeaponSwitchSystem.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyProjectile.cs" />
+    <Compile Include="Assets\SoundManagerStudy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerHUD.cs" />
     <Compile Include="Assets\ExternalAssets\Low Poly FPS Pack - Free (Sample)\Components\Demo_Scene_Components\Scripts\ExplosiveBarrelScript.cs" />
     <Compile Include="Assets\Scripts\Item\ItemMedicBag.cs" />
@@ -72,11 +73,11 @@
     <Compile Include="Assets\Scripts\InteractionObj\ParticleAutoDestroyerByTime.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemySpawnPoint.cs" />
     <Compile Include="Assets\Scripts\Status.cs" />
+    <Compile Include="Assets\SoundManagerStudy\ISoundManager.cs" />
     <Compile Include="Assets\Scripts\Item\ItemBase.cs" />
     <Compile Include="Assets\ExternalAssets\Low Poly FPS Pack - Free (Sample)\Components\Scripts\Misc\LookAtCamera.cs" />
     <Compile Include="Assets\Scripts\Weapon\WeaponType\WeaponRevolver.cs" />
     <Compile Include="Assets\Scripts\Item\ItemMagazine.cs" />
-    <Compile Include="Assets\Scripts\Weapon\WeaponType\WeaponGradeProjectile.cs" />
     <Compile Include="Assets\Scripts\InteractionObj\Target.cs" />
     <Compile Include="Assets\Scripts\MovementTransform.cs" />
     <Compile Include="Assets\ExternalAssets\Low Poly FPS Pack - Free (Sample)\Components\Scripts\Casings_&amp;_Projectiles\GrenadeScript.cs" />
@@ -91,7 +92,6 @@
     <Compile Include="Assets\ExternalAssets\Low Poly FPS Pack - Free (Sample)\Components\Scripts\Explosions_&amp;_Impacts\ImpactScript.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMemoryPool.cs" />
     <Compile Include="Assets\Scripts\Weapon\WeaponType\WeaponGranade.cs" />
-    <Compile Include="Assets\Scripts\Weapon\WeaponType\WeaponKnife.cs" />
     <Compile Include="Assets\Scripts\InteractionObj\InteractionObject.cs" />
     <Compile Include="Assets\ExternalAssets\Low Poly FPS Pack - Free (Sample)\Components\Scripts\FPSController\FpsControllerLPFP.cs" />
     <Compile Include="Assets\Scripts\InteractionObj\NormalBarrel.cs" />
@@ -99,15 +99,15 @@
     <Compile Include="Assets\Scripts\Weapon\WeaponType\WeaponAssultRifle.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\ExternalAssets\Low Poly FPS Pack - Free (Sample)\Components\Scripts\Weapon_Scripts\HandgunScriptLPFP.cs" />
+    <Compile Include="Assets\SoundManagerStudy\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Weapon\CasingMemoryPool.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerAnimationController.cs" />
-    <Compile Include="Assets\SoundManagerStudy\ISoundManager.cs" />
     <Compile Include="Assets\SoundManagerStudy\Player.cs" />
-    <Compile Include="Assets\SoundManagerStudy\SoundManager.cs" />
-    <Compile Include="Assets\SoundManagerStudy\Enemy.cs" />
-    <Compile Include="Assets\Scripts\Weapon\Granade.cs" />
-    <Compile Include="Assets\Scripts\Weapon\GranadeController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerAnimationController.cs" />
+    <Compile Include="Assets\Scripts\Granade\GranadeProjectile.cs" />
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Granade\GranadeThrow.cs" />
+    <Compile Include="Assets\Scripts\Granade\GranadeAudioManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -384,6 +384,18 @@
     </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.2\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>

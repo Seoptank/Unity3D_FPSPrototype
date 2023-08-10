@@ -70,14 +70,14 @@ public class WeaponGranade : WeaponBase
         }
     }
 
-    public void SpawnGranadeProjectile()
-    {
-        GameObject granadeClone = Instantiate(granadePrefab, granadeSpawnPoint.position, Random.rotation);
-        granadeClone.GetComponent<WeaponGradeProjectile>().Setup(weaponSetting.damage, transform.parent.forward);
-
-        weaponSetting.curAmmo--;
-        onAmmoEvent.Invoke(weaponSetting.curAmmo, weaponSetting.maxAmmo);
-    }
+    //public void SpawnGranadeProjectile()
+    //{
+    //    GameObject granadeClone = Instantiate(granadePrefab, granadeSpawnPoint.position, Random.rotation);
+    //    granadeClone.GetComponent<WeaponGradeProjectile>().Setup(weaponSetting.damage, transform.parent.forward);
+    //
+    //    weaponSetting.curAmmo--;
+    //    onAmmoEvent.Invoke(weaponSetting.curAmmo, weaponSetting.maxAmmo);
+    //}
 
     public override void IncreaseMagazine(int ammo)
     {

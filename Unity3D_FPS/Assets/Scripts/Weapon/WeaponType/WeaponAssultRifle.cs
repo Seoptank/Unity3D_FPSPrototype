@@ -21,7 +21,7 @@ public class WeaponAssultRifle : WeaponBase
     private Transform                   casingSpawnPoint;         // 탄피 생성 위치
     [SerializeField]
     private Transform                   bulletSpawnPoint;         // 총알 생성 위치
-
+    
     [Header("Audio Clips")]
     [SerializeField] 
     private AudioClip                   takeout;                  // 총기 꺼내는 사운드 
@@ -36,7 +36,7 @@ public class WeaponAssultRifle : WeaponBase
 
     [Header("Recoil")]
     [SerializeField]
-    private float                        minX, maxX, minY, maxY;
+    private float                       minX, maxX, minY, maxY;
     [SerializeField]
     private Transform                   cameraTransform;
     [SerializeField]
@@ -54,6 +54,7 @@ public class WeaponAssultRifle : WeaponBase
     {
         // 기반 클래스의 초기화를 위한 Setup() 메소드 호출
         base.Setup();
+        
 
         casingMemoryPool    = GetComponent<CasingMemoryPool>();
         impactMemoryPool    = GetComponent<ImpactMemoryPool>();
@@ -325,11 +326,7 @@ public class WeaponAssultRifle : WeaponBase
         float recX = Random.Range(minX, maxX);
         float recY = Random.Range(minY, maxY);
         cameraTransform.transform.localRotation = Quaternion.Euler(rot.x + recY, rot.y * recX, rot.z);
-
-        
     }
-
-
     public void StartKnifeAction(int type)
     {
         if (isAttack == true) return;
