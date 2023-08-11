@@ -23,6 +23,14 @@ public class WeaponRevolver : WeaponBase
     [SerializeField]                                    
     private AudioClip           reloadClip;             // 장전 사운드
 
+    [Header("Recoil")]
+    [SerializeField]
+    private float minX, maxX, minY, maxY;
+    [SerializeField]
+    private Transform cameraTransform;
+    [SerializeField]
+    private Vector3 rot;
+
     [Header("Aim UI")]
     [SerializeField]
     private Image               imageAim;
@@ -60,6 +68,16 @@ public class WeaponRevolver : WeaponBase
 
 
     }
+
+    private void Update()
+    {
+        rot = cameraTransform.transform.localRotation.eulerAngles;
+        if (rot.x != 0 || rot.y != 0)
+        {
+            cameraTransform.transform.localRotation = Quaternion.Slerp(cameraTransform.transform.localRotation, Quaternion.Euler(0, 0, 0), Time.deltaTime * 3);
+        }
+    }
+
     public override void StartWeaponAction(int type = 0)
     {
         // 재장전중일때 무기액션 할수 없다.
@@ -118,6 +136,8 @@ public class WeaponRevolver : WeaponBase
 
             // 탄 수가 없으면 공격 불가능
             if (weaponSetting.curAmmo <= 0) return;
+
+            OnRecoil();
 
             weaponSetting.curAmmo--;
             onAmmoEvent.Invoke(weaponSetting.curAmmo, weaponSetting.maxAmmo);
@@ -239,6 +259,12 @@ public class WeaponRevolver : WeaponBase
             yield return null;
         }
         isModeChange = false;
+    }
+    public void OnRecoil()
+    {
+        float recX = Random.Range(minX, maxX);
+        float recY = Random.Range(minY, maxY);
+        cameraTransform.transform.localRotation = Quaternion.Euler(rot.x + recY, rot.y * recX, rot.z);
     }
     private void ResetVariables()
     {

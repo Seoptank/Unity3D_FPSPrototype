@@ -6,13 +6,15 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Input KeyCodes")]
     [SerializeField]
-    private KeyCode runKey  = KeyCode.LeftShift;    // 달리기 키
+    private KeyCode runKey  = KeyCode.LeftShift;                // 달리기 키
     [SerializeField]
-    private KeyCode jumpKey = KeyCode.Space;        // 점프 키
+    private KeyCode jumpKey = KeyCode.Space;                    // 점프 키
     [SerializeField]
-    private KeyCode reloadKey = KeyCode.R;          // 재장전 키
+    private KeyCode reloadKey = KeyCode.R;                      // 재장전 키
     [SerializeField]
-    private KeyCode fireModechangeKey = KeyCode.V;  // 단발/연발 전환 키
+    private KeyCode fireModechangeKey = KeyCode.V;              // 단발/연발 전환 키
+    [SerializeField]
+    private KeyCode controllModeChangeKey = KeyCode.Escape;     // 마우스 컨트롤 모드 전환 키
 
     [Header("Audio Clips")]
     [SerializeField]
@@ -41,6 +43,20 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(controllModeChangeKey))
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else if (Input.GetKeyUp(controllModeChangeKey))
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        //마우스가 UI위에 있을때 아래 코드가 실행되지 않도록
+        if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) return;
+
         UpdateRotate();
         UpdateMove();
         UpdateJump();
@@ -106,7 +122,7 @@ public class PlayerController : MonoBehaviour
     private void UpdateWeaponAction()
     {
         
-
+        
         if(Input.GetMouseButtonDown(0))
         {
             weapon.StartWeaponAction();
@@ -144,6 +160,7 @@ public class PlayerController : MonoBehaviour
         {
             weapon.GetComponent<WeaponAssultRifle>().StopKnifeAction();
         }
+
     }
 
     public void TakeDamage(int damage)

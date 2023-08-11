@@ -14,7 +14,11 @@ public class GranadeThrow : MonoBehaviour
     [SerializeField]
     private Vector3                 throwDir = new Vector3(0,1,0);
     [SerializeField]
-    private KeyCode                 fireGranadeKey = KeyCode.G;  
+    private KeyCode                 fireGranadeKey = KeyCode.G;
+    [SerializeField]
+    private int                     maxAmmo = 3;
+    [SerializeField]
+    private int                     curAmmo;
 
     [Header("Granade Force")]
     [SerializeField]
@@ -47,10 +51,13 @@ public class GranadeThrow : MonoBehaviour
     private void Start()
     {
         trajectoryLine.enabled = false;
+        curAmmo = maxAmmo;
     }
 
     void Update()
     {
+        if (curAmmo < 0) return;
+
         if (Input.GetKeyDown(fireGranadeKey))
         {
             StartThrowing();
@@ -70,11 +77,17 @@ public class GranadeThrow : MonoBehaviour
     {
         GranadeAudioManager.instance.PlayOneShot(pullPinClip,0.5f);
 
+        curAmmo--;
         isCharging = true;
         chargingTime = 0.0f;
 
         // ¼ö·ùÅº ±ËÀû
         trajectoryLine.enabled = true;
+
+        if(curAmmo<0)
+        {
+            trajectoryLine.enabled = false;
+        }
     }
     public void ChargeThrow()
     {

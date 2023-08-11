@@ -71,7 +71,7 @@ public class GranadeProjectile : MonoBehaviour
         PlaySound(explosionClip);
 
         // 타 오브젝트와 상호작용
-        //InteractionOtherObject();
+        InteractionOtherObject();
 
         Destroy(explosionEffect, 2.0f);
     }
@@ -87,17 +87,6 @@ public class GranadeProjectile : MonoBehaviour
     }
     private void InteractionOtherObject()
     {
-        
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        audioSource.clip = impactSound;
-
-        audioSource.spatialBlend = 1;
-
-        audioSource.Play();
-
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider hit in colliders)
         {
@@ -132,6 +121,17 @@ public class GranadeProjectile : MonoBehaviour
                 rigidbody.AddExplosionForce(explosionForce, transform.position, explosionRadius);
             }
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        audioSource.clip = impactSound;
+
+        audioSource.spatialBlend = 1;
+
+        audioSource.Play();
+
+       
     }
 
     private void OnDrawGizmos()
