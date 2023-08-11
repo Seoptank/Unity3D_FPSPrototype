@@ -22,12 +22,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private AudioClip runClip;
 
-    private RotateToMouse               rotateToMouse;      // 마우스 이동으로 카메라 회전
-    private PlayerMovement              movement;           // 키보드 입력으로 플레이어 이동, 점프
-    private Status                      playerState;        // 플레이어 정보
-    private AudioSource                 audioSource;        // 사운드 재생 제어
-    private WeaponBase                  weapon;             // 모든 무기가 상속받는 기반 클래스
-    private GranadeThrow                granade;
+    private RotateToMouse                   rotateToMouse;      // 마우스 이동으로 카메라 회전
+    private PlayerMovement                  movement;           // 키보드 입력으로 플레이어 이동, 점프
+    private Status                          playerState;        // 플레이어 정보
+    private AudioSource                     audioSource;        // 사운드 재생 제어
+    private WeaponBase                      weapon;             // 모든 무기가 상속받는 기반 클래스
 
     private void Awake()
     {
@@ -38,7 +37,6 @@ public class PlayerController : MonoBehaviour
         movement      = GetComponent<PlayerMovement>();
         playerState   = GetComponent<Status>();
         audioSource   = GetComponent<AudioSource>();
-        granade       = GetComponent<GranadeThrow>();
     }
 
     private void Update()
