@@ -368,6 +368,7 @@
 "Assets/Scripts/Enemy/EnemyMemoryPool.cs"
 "Assets/Scripts/Enemy/EnemyProjectile.cs"
 "Assets/Scripts/Enemy/EnemySpawnPoint.cs"
+"Assets/Scripts/Entity.cs"
 "Assets/Scripts/Granade/GranadeAudioManager.cs"
 "Assets/Scripts/Granade/GranadeProjectile.cs"
 "Assets/Scripts/Granade/GranadeThrow.cs"
@@ -403,6 +404,7 @@
 "Assets/Study/SoundManagerStudy/ISoundManager.cs"
 "Assets/Study/SoundManagerStudy/Player.cs"
 "Assets/Study/SoundManagerStudy/SoundManager.cs"
+"Assets/UI pack/Scripts/FillValueNumber.cs"
 -langversion:9.0
 
 /deterministic

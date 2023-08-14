@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\MemoryPool.cs" />
     <Compile Include="Assets\ExternalAssets\Low Poly FPS Pack - Free (Sample)\Components\Scripts\Bullet\BulletScript.cs" />
     <Compile Include="Assets\Scripts\InteractionObj\ParticleAutoDestroyerByTime.cs" />
+    <Compile Include="Assets\FollowMinimapTarget.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemySpawnPoint.cs" />
     <Compile Include="Assets\Scripts\Status.cs" />
     <Compile Include="Assets\Study\SoundManagerStudy\ISoundManager.cs" />
@@ -109,7 +110,8 @@
     <Compile Include="Assets\Study\SoundManagerStudy\Player.cs" />
     <Compile Include="Assets\Scripts\Granade\GranadeAudioManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimationController.cs" />
-    <Compile Include="Assets\FollowMinimapTarget.cs" />
+    <Compile Include="Assets\UI pack\Scripts\FillValueNumber.cs" />
+    <Compile Include="Assets\Scripts\Entity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -126,6 +128,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\UI pack\Documentation.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
@@ -795,6 +798,9 @@
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
     </Reference>
@@ -827,9 +833,6 @@
     </Reference>
     <Reference Include="Unity.EditorCoroutines.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

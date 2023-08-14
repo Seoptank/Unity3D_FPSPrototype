@@ -2,32 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// https://blog.naver.com/choish1919
 
 [System.Serializable]
 public class HPEvent : UnityEngine.Events.UnityEvent<int, int> { }
+public class StaminaEvent : UnityEngine.Events.UnityEvent<int, int> { }
 
 // 플레이어 정보를 관리하는 클래스
 public class Status : MonoBehaviour
 {
     [HideInInspector]
     public HPEvent onHPEvent = new HPEvent();
+    [HideInInspector]
+    public StaminaEvent onStaminaEvent = new StaminaEvent();
 
     [Header("Walk,RunSpeed")]
     [SerializeField]
-    private float   walkSpeed;
+    public float   walkSpeed;
     [SerializeField]
-    private float   runSpeed;
+    public float   runSpeed;
 
-    [Header("HP")]
-    [SerializeField]
-    private int     maxHP = 100;
-    private int     curHP;
+    [Header("HP/MP")]
+    public int     maxHP = 100;
+    public int     curHP;
+    public float   maxStamina = 100;
+    public float   curStamina;
 
     // 외부에서 값 확인하는 용도
     public float    WalkSpeed => walkSpeed;
     public float    RunSpeed  => runSpeed;
     public int      CurHP => curHP;
     public int      MaxHP => maxHP;
+    public float    CurStamina => curStamina;
+    public float    MaxStamina => maxStamina;
 
     private void Awake()
     {
