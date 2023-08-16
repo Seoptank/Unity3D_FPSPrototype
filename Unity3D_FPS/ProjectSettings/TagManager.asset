@@ -49,3 +49,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: heartbeatUI
+    uniqueID: 3403670009
+    locked: 0
+  - name: NormalUI
+    uniqueID: 3869816751
+    locked: 0

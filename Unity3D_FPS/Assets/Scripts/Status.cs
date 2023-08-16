@@ -39,11 +39,6 @@ public class Status : MonoBehaviour
         curStamina = maxStamina;
     }
 
-    private void Update()
-    {
-        Debug.Log(curStamina);
-    }
-
     public bool DecreaseHP(int damage)
     {
         int previousHP = curHP;

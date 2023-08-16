@@ -112,6 +112,7 @@
     <Compile Include="Assets\Study\SoundManagerStudy\Player.cs" />
     <Compile Include="Assets\Scripts\Granade\GranadeAudioManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimationController.cs" />
+    <Compile Include="Assets\HeartbeatRateEffectController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
