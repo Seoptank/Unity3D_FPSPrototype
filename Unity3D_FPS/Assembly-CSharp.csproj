@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\Impact\Impact.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerCollider.cs" />
     <Compile Include="Assets\Scripts\Weapon\Casing.cs" />
+    <Compile Include="Assets\UI pack\Scripts\FillValueNumber.cs" />
     <Compile Include="Assets\FollowTopViewCameraController.cs" />
     <Compile Include="Assets\ExternalAssets\Low Poly FPS Pack - Free (Sample)\Components\Scripts\Explosions_&amp;_Impacts\ExplosionScript.cs" />
     <Compile Include="Assets\ExternalAssets\Low Poly FPS Pack - Free (Sample)\Components\Scripts\Explosions_&amp;_Impacts\ImpactScript.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Assets\Scripts\Weapon\WeaponBase.cs" />
     <Compile Include="Assets\Scripts\Weapon\WeaponType\WeaponAssultRifle.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Entity.cs" />
     <Compile Include="Assets\ExternalAssets\Low Poly FPS Pack - Free (Sample)\Components\Scripts\Weapon_Scripts\HandgunScriptLPFP.cs" />
     <Compile Include="Assets\Study\SoundManagerStudy\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
@@ -110,8 +112,6 @@
     <Compile Include="Assets\Study\SoundManagerStudy\Player.cs" />
     <Compile Include="Assets\Scripts\Granade\GranadeAudioManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimationController.cs" />
-    <Compile Include="Assets\UI pack\Scripts\FillValueNumber.cs" />
-    <Compile Include="Assets\Scripts\Entity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

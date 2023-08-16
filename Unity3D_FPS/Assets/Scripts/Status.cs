@@ -6,15 +6,12 @@ using UnityEngine;
 
 [System.Serializable]
 public class HPEvent : UnityEngine.Events.UnityEvent<int, int> { }
-public class StaminaEvent : UnityEngine.Events.UnityEvent<int, int> { }
 
 // 플레이어 정보를 관리하는 클래스
 public class Status : MonoBehaviour
 {
     [HideInInspector]
     public HPEvent onHPEvent = new HPEvent();
-    [HideInInspector]
-    public StaminaEvent onStaminaEvent = new StaminaEvent();
 
     [Header("Walk,RunSpeed")]
     [SerializeField]
@@ -39,6 +36,12 @@ public class Status : MonoBehaviour
     private void Awake()
     {
         curHP = maxHP;
+        curStamina = maxStamina;
+    }
+
+    private void Update()
+    {
+        Debug.Log(curStamina);
     }
 
     public bool DecreaseHP(int damage)
@@ -64,5 +67,22 @@ public class Status : MonoBehaviour
         curHP = curHP + hp > maxHP ? maxHP : curHP + hp;
 
         onHPEvent.Invoke(previousHP, curHP);
+    }
+
+    public void DecreaseStamina()
+    {
+        if(curStamina > 0)
+        {
+          curStamina -= 0.05f;
+        }
+        if(curStamina>=maxStamina)
+        {
+            curStamina = maxStamina;
+        }
+    }
+
+    public void IncreaseStamina()
+    {
+        curStamina += 0.025f;
     }
 }

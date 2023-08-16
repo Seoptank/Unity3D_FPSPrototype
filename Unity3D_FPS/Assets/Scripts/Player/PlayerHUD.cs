@@ -40,7 +40,11 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI         textHP;
     [SerializeField]
+    private TextMeshProUGUI         textStamina;
+    [SerializeField]
     private Image                   CircleHpBar;
+    [SerializeField]
+    private Image                   CircleStaminaBar;
     [SerializeField]
     private Image                   imageBloodScreen;
     [SerializeField]
@@ -54,7 +58,9 @@ public class PlayerHUD : MonoBehaviour
     private void Update()
     {
         status.onHPEvent.AddListener(UpdateHPHUD);
-        CircleHpBar.fillAmount = status.curHP * 0.01f;
+        UpdateStamina((int)status.curStamina);
+        CircleHpBar.fillAmount      = status.curHP * 0.01f;
+        CircleStaminaBar.fillAmount = status.curStamina * 0.01f;
     }
 
     public void SetupAllWeapons(WeaponBase[] weapons)
@@ -115,9 +121,14 @@ public class PlayerHUD : MonoBehaviour
         }
     }
 
+    private void UpdateStamina(int cur)
+    {
+        textStamina.text = cur.ToString();
+    }
+
     private void UpdateHPHUD(int previous, int cur)
     {
-        textHP.text = "HP" + cur;
+        textHP.text =  cur.ToString();
         // 체력이 증가했을때는 화면에 빨간색 이미지를 출력하지 않도록 return
         if (previous <= cur) return;
 

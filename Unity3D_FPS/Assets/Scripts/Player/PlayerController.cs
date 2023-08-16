@@ -28,6 +28,11 @@ public class PlayerController : MonoBehaviour
     private AudioSource                     audioSource;        // 사운드 재생 제어
     private WeaponBase                      weapon;             // 모든 무기가 상속받는 기반 클래스
 
+    [SerializeField]
+    private GameObject                      heartbeatNormal;                              
+    [SerializeField]
+    private GameObject                      heartbeatDead;                              
+
     private void Awake()
     {
         Cursor.visible = false;
@@ -37,6 +42,11 @@ public class PlayerController : MonoBehaviour
         movement      = GetComponent<PlayerMovement>();
         playerState   = GetComponent<Status>();
         audioSource   = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
+        heartbeatNormal.SetActive(true);
     }
 
     private void Update()
@@ -59,6 +69,7 @@ public class PlayerController : MonoBehaviour
         UpdateMove();
         UpdateJump();
         UpdateWeaponAction();
+        UpdateStamina();
     }
 
     private void UpdateRotate()
@@ -82,6 +93,13 @@ public class PlayerController : MonoBehaviour
             // 전방이동 중에만 뛸수 있게
             if (z > 0)
                 isRun = Input.GetKey(runKey);
+
+            ControllStamina(isRun);
+
+            if (playerState.curStamina <= 0)
+            {
+                isRun = false;
+            }
 
             movement.MoveSpeed  = isRun == true ? playerState.RunSpeed : playerState.WalkSpeed;
             weapon.Animator.MoveSpeed = isRun == true ? 1 : 0.5f;
@@ -161,6 +179,29 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void ControllStamina(bool isRun)
+    {
+        if(isRun == true)
+        {
+            playerState.DecreaseStamina();
+            
+        }
+        else
+        {
+            playerState.IncreaseStamina();
+        }
+
+    }
+
+    public void UpdateStamina()
+    {
+        if(playerState.curStamina >= playerState.maxStamina)
+        {
+            playerState.curStamina = playerState.maxStamina;
+        }
+        Debug.Log(playerState.curStamina);
+    }
+
     public void TakeDamage(int damage)
     {
         bool isDie = playerState.DecreaseHP(damage);
@@ -168,6 +209,8 @@ public class PlayerController : MonoBehaviour
         if(isDie == true)
         {
             Debug.Log("GameOver");
+            heartbeatNormal.SetActive(false);
+            heartbeatDead.SetActive(true);
         }
     }
 
@@ -175,4 +218,5 @@ public class PlayerController : MonoBehaviour
     {
         weapon = newWeapon;
     }
+
 }
