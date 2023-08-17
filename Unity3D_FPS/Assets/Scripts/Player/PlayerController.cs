@@ -86,6 +86,11 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
+        if(isRun == false)
+        {
+            playerState.IncreaseStamina();
+        }
+
         // ¿Ãµø ¡ﬂ 
         if(x != 0 || z != 0)
         {
@@ -186,11 +191,6 @@ public class PlayerController : MonoBehaviour
         {
             playerState.DecreaseStamina();
         }
-        else
-        {
-            playerState.IncreaseStamina();
-        }
-
     }
 
     public void UpdateStamina()

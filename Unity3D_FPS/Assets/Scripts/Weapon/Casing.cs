@@ -11,9 +11,9 @@ public class Casing : MonoBehaviour
     [SerializeField]
     private AudioClip[] audioClips;          // ÅºÇÇ°¡ ºÎµúÈú ¶§ Àç»ýµÇ´Â »ç¿îµå
 
-    private Rigidbody   rigid;
-    private AudioSource audio;
-    private MemoryPool  memorypool;
+    private Rigidbody           rigid;
+    private AudioSource         audio;
+    private MemoryPool          memorypool;
 
     public void Setup(MemoryPool pool, Vector3 dir)
     {
