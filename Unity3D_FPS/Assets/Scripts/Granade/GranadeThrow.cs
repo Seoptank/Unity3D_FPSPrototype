@@ -18,7 +18,9 @@ public class GranadeThrow : MonoBehaviour
     [SerializeField]
     private int                     maxAmmo = 3;
     [SerializeField]
-    private int                     curAmmo;
+    public int                      curAmmo;
+    [SerializeField]
+    private int                     minAmmo = 0;
 
     [Header("Granade Force")]
     [SerializeField]
@@ -56,7 +58,7 @@ public class GranadeThrow : MonoBehaviour
 
     void Update()
     {
-        if (curAmmo < 0) return;
+        if (curAmmo <= 0) return;
 
         if (Input.GetKeyDown(fireGranadeKey))
         {
@@ -77,7 +79,8 @@ public class GranadeThrow : MonoBehaviour
     {
         GranadeAudioManager.instance.PlayOneShot(pullPinClip,0.5f);
 
-        curAmmo--;
+        
+
         isCharging = true;
         chargingTime = 0.0f;
 
@@ -98,6 +101,12 @@ public class GranadeThrow : MonoBehaviour
     }
     public void ReleaseThrow()
     {
+        curAmmo--;
+
+        if (curAmmo <= 0)
+        {
+            curAmmo = minAmmo;
+        }
         ThrowGranade(Mathf.Min(chargingTime * throwForce, maxForce));
         isCharging = false;
 

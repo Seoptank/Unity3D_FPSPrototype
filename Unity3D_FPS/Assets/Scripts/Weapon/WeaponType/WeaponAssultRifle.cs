@@ -321,6 +321,11 @@ public class WeaponAssultRifle : WeaponBase
     {
         weaponSetting.isAutometicAttack = !weaponSetting.isAutometicAttack;
     }
+    public bool OnAutoAttack()
+    {
+        if (weaponSetting.isAutometicAttack == true) return true;
+        return false;   
+    }
     public void OnRecoil()
     {
         float recX = Random.Range(minX, maxX);

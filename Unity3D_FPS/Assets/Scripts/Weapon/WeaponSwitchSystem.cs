@@ -15,6 +15,8 @@ public class WeaponSwitchSystem : MonoBehaviour
     private WeaponBase curWeapon;      // 현재 사용중인 무기
     private WeaponBase preWeapon;      // 직전 사용했던 무기
 
+    private bool       haveAutoTypeWeapon;
+
     private void Awake()
     {
         // 무기 정보 출력을 위해 현재 소지중인 모든 무기 이벤트 등록
@@ -48,6 +50,17 @@ public class WeaponSwitchSystem : MonoBehaviour
             SwitchingWeapon((WeaponType)(inputIndex - 1));
         }
     }
+
+    private bool HaveAutoTypeWeapon()
+    {
+        WeaponType weapontType;
+
+        if(curWeapon == weapons[1])
+        {
+            return true;
+        }
+        return false;
+    }    
 
     private void SwitchingWeapon(WeaponType weaponType)
     {

@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: de63e94f703bb92439f7888c90702c47
+timeCreated: 1548935712
+licenseType: Store
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Terror Pro
+  fontNames:
+  - Terror Pro
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

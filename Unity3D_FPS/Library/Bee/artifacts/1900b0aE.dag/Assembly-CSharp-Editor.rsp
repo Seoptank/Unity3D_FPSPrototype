@@ -364,8 +364,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.TestRunner.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
-"Assets/Textures/_Resources/Dark MainMenu/PostEffect/Glitch/Editor/AnalogGlitchEditor.cs"
-"Assets/Textures/_Resources/Dark MainMenu/PostEffect/Glitch/Editor/DigitalGlitchEditor.cs"
+"Assets/UIAsset/_Resources/Dark MainMenu/PostEffect/Glitch/Editor/AnalogGlitchEditor.cs"
+"Assets/UIAsset/_Resources/Dark MainMenu/PostEffect/Glitch/Editor/DigitalGlitchEditor.cs"
 -langversion:9.0
 
 /deterministic

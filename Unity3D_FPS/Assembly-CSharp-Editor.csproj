@@ -56,8 +56,8 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Textures\_Resources\Dark MainMenu\PostEffect\Glitch\Editor\DigitalGlitchEditor.cs" />
-    <Compile Include="Assets\Textures\_Resources\Dark MainMenu\PostEffect\Glitch\Editor\AnalogGlitchEditor.cs" />
+    <Compile Include="Assets\UIAsset\_Resources\Dark MainMenu\PostEffect\Glitch\Editor\AnalogGlitchEditor.cs" />
+    <Compile Include="Assets\UIAsset\_Resources\Dark MainMenu\PostEffect\Glitch\Editor\DigitalGlitchEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

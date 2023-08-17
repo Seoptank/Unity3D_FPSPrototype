@@ -7,10 +7,14 @@ using TMPro;
 public class PlayerHUD : MonoBehaviour
 {
     private WeaponBase              weapon;                 // 현재 정보가 출력되는 무기
-
+    
     [Header("Components")]
     [SerializeField]
     private Status                  status;                 // 플레이어 상태( 이동속도, 체력 등)
+    [SerializeField]
+    private GranadeThrow            granade;
+    [SerializeField]
+    private WeaponAssultRifle       assultRifle;
 
     [Header("Weapon Base")]
     [SerializeField]
@@ -25,6 +29,12 @@ public class PlayerHUD : MonoBehaviour
     [Header("Ammo")]
     [SerializeField]
     private TextMeshProUGUI         textAmmo;               // 현재/최대 탄수 출력
+    [SerializeField]
+    private TextMeshProUGUI         textGranadeAmmo;        // 수류탄 현재 탄수 출력
+    
+    [Header("FireType")]
+    [SerializeField]
+    private TextMeshProUGUI         textFireType;           // 발사 유형 출력
 
     [Header("Magazine")]
     [SerializeField]
@@ -61,6 +71,8 @@ public class PlayerHUD : MonoBehaviour
         UpdateStamina((int)status.curStamina);
         CircleHpBar.fillAmount      = status.curHP * 0.01f;
         CircleStaminaBar.fillAmount = status.curStamina * 0.01f;
+        UpdateGranadeAmmo();
+        UpdateTextFireType();
     }
 
     public void SetupAllWeapons(WeaponBase[] weapons)
@@ -72,6 +84,16 @@ public class PlayerHUD : MonoBehaviour
             weapons[i].onAmmoEvent.AddListener(UpdateAmmoHUD);
             weapons[i].onMagazineEvent.AddListener(UpdateMagazineHUD);
         }
+    }
+
+    private void UpdateTextFireType()
+    {
+        if(assultRifle.OnAutoAttack() == true)
+        {
+            textFireType.text = "AUTO";
+        }
+        else 
+            textFireType.text = "SEMI";
     }
 
     public void SwitchingWeapon(WeaponBase newWeapon)
@@ -91,6 +113,11 @@ public class PlayerHUD : MonoBehaviour
     private void UpdateAmmoHUD(int curAmmo, int maxAmmo)
     {
         textAmmo.text = $"<size=40>{ curAmmo}/</size>{maxAmmo}";
+    }
+
+    private void UpdateGranadeAmmo()
+    {
+        textGranadeAmmo.text = "X" + granade.curAmmo;
     }
 
     private void SetupMagazine()
