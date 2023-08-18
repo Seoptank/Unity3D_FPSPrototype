@@ -139,43 +139,6 @@ public class EnemyFSM : MonoBehaviour
 
     }
 
-    private Vector3 CalculateWanderPosition()
-    {
-        float wanderRadius = 10;        // 현재 위치를 원점으로 하는 원의 반지름
-        int wanderJitter = 0;           // 선택된 각도 (wanderJitterMin ~ wanderJitterMax)
-        int wanderJitterMin = 0;        // 최소 각도
-        int wanderJitterMax = 360;      // 최대 각도
-
-        // 현재 적 캐릭터가 있는 월드의 중심 위치와 크기(구역을 벗어난 행동을 하지 않도록)
-        Vector3 rangePosition = Vector3.zero;
-        Vector3 rangeScale    = Vector3.one * 100.0f;
-
-        // 자신의 위치를 중심으로 반지름(wanderRadius)거리,
-        // 선택된 각도(wanderJitter)에 위치한 좌표를 목표지점으로 설정
-        wanderJitter = Random.Range(wanderJitterMin, wanderJitterMax);
-        Vector3 targetPos = transform.position + SetAngle(wanderRadius, wanderJitter);
-
-        //생성된 목표가 자신의 이동구역을 벗어나지 않게 조절
-        targetPos.x = Mathf.Clamp(targetPos.x,
-                                  rangePosition.x - rangeScale.x * 0.5f,
-                                  rangePosition.x + rangeScale.x * 0.5f);
-        targetPos.y = 0.0f;
-        targetPos.z = Mathf.Clamp(targetPos.z,
-                                  rangePosition.z - rangeScale.z * 0.5f,
-                                  rangePosition.z + rangeScale.z * 0.5f);
-
-        return targetPos;
-    }
-
-    private Vector3 SetAngle(float radius, int angle)
-    {
-        Vector3 position = Vector3.zero;
-
-        position.x = Mathf.Cos(angle) * radius;
-        position.z = Mathf.Sin(angle) * radius;
-
-        return position;
-    }
 
     private IEnumerator Pursuit()
     {
@@ -237,6 +200,43 @@ public class EnemyFSM : MonoBehaviour
         // transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.01f);
     }
 
+    private Vector3 CalculateWanderPosition()
+    {
+        float wanderRadius = 10;        // 현재 위치를 원점으로 하는 원의 반지름
+        int wanderJitter = 0;           // 선택된 각도 (wanderJitterMin ~ wanderJitterMax)
+        int wanderJitterMin = 0;        // 최소 각도
+        int wanderJitterMax = 360;      // 최대 각도
+
+        // 현재 적 캐릭터가 있는 월드의 중심 위치와 크기(구역을 벗어난 행동을 하지 않도록)
+        Vector3 rangePosition = Vector3.zero;
+        Vector3 rangeScale    = Vector3.one * 100.0f;
+
+        // 자신의 위치를 중심으로 반지름(wanderRadius)거리,
+        // 선택된 각도(wanderJitter)에 위치한 좌표를 목표지점으로 설정
+        wanderJitter = Random.Range(wanderJitterMin, wanderJitterMax);
+        Vector3 targetPos = transform.position + SetAngle(wanderRadius, wanderJitter);
+
+        //생성된 목표가 자신의 이동구역을 벗어나지 않게 조절
+        targetPos.x = Mathf.Clamp(targetPos.x,
+                                  rangePosition.x - rangeScale.x * 0.5f,
+                                  rangePosition.x + rangeScale.x * 0.5f);
+        targetPos.y = 0.0f;
+        targetPos.z = Mathf.Clamp(targetPos.z,
+                                  rangePosition.z - rangeScale.z * 0.5f,
+                                  rangePosition.z + rangeScale.z * 0.5f);
+
+        return targetPos;
+    }
+
+    private Vector3 SetAngle(float radius, int angle)
+    {
+        Vector3 position = Vector3.zero;
+
+        position.x = Mathf.Cos(angle) * radius;
+        position.z = Mathf.Sin(angle) * radius;
+
+        return position;
+    }
     private void CalculateDisToTargetAndSelectState()
     {
         if (target == null) return;

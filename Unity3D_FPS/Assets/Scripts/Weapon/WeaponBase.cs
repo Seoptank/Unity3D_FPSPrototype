@@ -45,6 +45,7 @@ public abstract class WeaponBase : MonoBehaviour
     public abstract void StartWeaponAction(int type = 0);
     public abstract void StopWeaponAction(int type = 0);
     public abstract void StartReload();
+    public abstract void FireModeChange();
 
     protected void PlaySound(AudioClip clip)
     {

@@ -124,6 +124,10 @@ public class WeaponRevolver : WeaponBase
 
         StartCoroutine("OnReload");
     }
+    public override void FireModeChange()
+    {
+        weaponSetting.isAutometicAttack = false;
+    }
     public void OnAttack()
     {
         if (Time.time - lastAttackTime > weaponSetting.attackRate)

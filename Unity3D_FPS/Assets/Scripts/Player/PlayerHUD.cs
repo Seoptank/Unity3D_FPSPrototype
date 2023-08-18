@@ -15,6 +15,8 @@ public class PlayerHUD : MonoBehaviour
     private GranadeThrow            granade;
     [SerializeField]
     private WeaponAssultRifle       assultRifle;
+    [SerializeField]
+    private WeaponSwitchSystem      weaponSwitchingSys;
 
     [Header("Weapon Base")]
     [SerializeField]
@@ -88,11 +90,16 @@ public class PlayerHUD : MonoBehaviour
 
     private void UpdateTextFireType()
     {
-        if(assultRifle.OnAutoAttack() == true)
+        if (weaponSwitchingSys.HaveAutoTypeWeapon() == true)
         {
-            textFireType.text = "AUTO";
+            if (assultRifle.OnAutoAttack() == true)
+            {
+                textFireType.text = "AUTO";
+            }
+            else
+                textFireType.text = "SEMI";
         }
-        else 
+        else
             textFireType.text = "SEMI";
     }
 

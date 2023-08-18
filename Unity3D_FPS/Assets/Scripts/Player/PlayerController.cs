@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKeyDown(fireModechangeKey))
         {
-            weapon.GetComponent<WeaponAssultRifle>().FireModeChange();
+            weapon.FireModeChange();
         }
 
         if(Input.GetKeyDown(KeyCode.C))

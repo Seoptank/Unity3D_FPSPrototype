@@ -10,12 +10,12 @@ public class WeaponSwitchSystem : MonoBehaviour
     private PlayerHUD playerHUD;
 
     [SerializeField]
-    private WeaponBase[] weapons;     // 소지중인 무기 4종류
+    private WeaponBase[] weapons;     // 소지중인 무기 2종류
 
     private WeaponBase curWeapon;      // 현재 사용중인 무기
     private WeaponBase preWeapon;      // 직전 사용했던 무기
 
-    private bool       haveAutoTypeWeapon;
+    private bool       haveAutoTypeWeapon = false;
 
     private void Awake()
     {
@@ -37,6 +37,7 @@ public class WeaponSwitchSystem : MonoBehaviour
     private void Update()
     {
         UpdateSwitch();
+        HaveAutoTypeWeapon();
     }
 
     private void UpdateSwitch()
@@ -51,14 +52,16 @@ public class WeaponSwitchSystem : MonoBehaviour
         }
     }
 
-    private bool HaveAutoTypeWeapon()
+    public bool HaveAutoTypeWeapon()
     {
-        WeaponType weapontType;
-
-        if(curWeapon == weapons[1])
+        if (curWeapon == weapons[0])
         {
+            haveAutoTypeWeapon = true;
             return true;
         }
+        else 
+            haveAutoTypeWeapon = false;
+
         return false;
     }    
 

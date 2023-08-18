@@ -317,7 +317,7 @@ public class WeaponAssultRifle : WeaponBase
         isAttack        = false;
         isModeChange    = false;
     }
-    public void FireModeChange()
+    public override void FireModeChange()
     {
         weaponSetting.isAutometicAttack = !weaponSetting.isAutometicAttack;
     }
