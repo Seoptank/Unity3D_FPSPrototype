@@ -18,7 +18,7 @@ public class EnemyMemoryPool : MonoBehaviour
     private MemoryPool      spawnPointMemoryPool;                   // 적 등장 위치를 알려주는 오브젝트 생성, 활성/비활성
     private MemoryPool      enemyMemoryPool;                        // 적 생성, 활성/비활성
 
-    private int             numberOfEnemiesSpawnedAtOnce = 10;      // 동시에 생성되는 적의 숫자
+    private int             numberOfEnemiesSpawnedAtOnce = 0;      // 동시에 생성되는 적의 숫자
     private Vector2Int      mapSize = new Vector2Int(100,100);      // 맵 크기
 
     private void Awake()

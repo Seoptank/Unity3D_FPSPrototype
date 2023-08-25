@@ -76,6 +76,7 @@
     <Compile Include="Assets\ExternalAssets\Low Poly FPS Pack - Free (Sample)\Components\Scripts\Bullet\BulletScript.cs" />
     <Compile Include="Assets\Scripts\InteractionObj\ParticleAutoDestroyerByTime.cs" />
     <Compile Include="Assets\Scripts\MiniMap\FollowMinimapTarget.cs" />
+    <Compile Include="Assets\SharpPoly_Zombies\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemySpawnPoint.cs" />
     <Compile Include="Assets\UIAsset\_Resources\Dark MainMenu\Scripts\Menu\GraphicsManager\QualitySettingsMenu.cs" />
     <Compile Include="Assets\UIAsset\_Resources\Dark MainMenu\Scripts\Menu\SoundManager\ButtonClicks.cs" />
@@ -127,8 +128,7 @@
     <Compile Include="Assets\Scripts\Weapon\CasingMemoryPool.cs" />
     <Compile Include="Assets\Scripts\Granade\GranadeAudioManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimationController.cs" />
-    <Compile Include="Assets\SharpPoly_Zombies\Scripts\SimpleCameraController.cs" />
-    <Compile Include="Assets\ZombieFSM.cs" />
+    <Compile Include="Assets\ZombieController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -411,6 +411,18 @@
     </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.2\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Types">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Android.Gradle">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
