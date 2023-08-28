@@ -103,6 +103,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerCollider.cs" />
     <Compile Include="Assets\Scripts\Weapon\Casing.cs" />
     <Compile Include="Assets\UIAsset\UI pack\Scripts\FillValueNumber.cs" />
+    <Compile Include="Assets\ZombieController.cs" />
     <Compile Include="Assets\Scripts\MiniMap\FollowTopViewCameraController.cs" />
     <Compile Include="Assets\UIAsset\_Resources\Dark MainMenu\Scripts\Character\PlayerLook.cs" />
     <Compile Include="Assets\ExternalAssets\Low Poly FPS Pack - Free (Sample)\Components\Scripts\Explosions_&amp;_Impacts\ExplosionScript.cs" />
@@ -128,7 +129,12 @@
     <Compile Include="Assets\Scripts\Weapon\CasingMemoryPool.cs" />
     <Compile Include="Assets\Scripts\Granade\GranadeAudioManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAnimationController.cs" />
-    <Compile Include="Assets\ZombieController.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombieState.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombieStateManager.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombieIdle.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombieAttack.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombiePursuit.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombieWander.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -411,18 +417,6 @@
     </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>Library\PackageCache\com.unity.testtools.codecoverage@1.2.2\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Android.Types">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Android.Gradle">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Gradle.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.19f1\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
