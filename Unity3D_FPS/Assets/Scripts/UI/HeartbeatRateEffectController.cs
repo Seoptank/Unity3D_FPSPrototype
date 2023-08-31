@@ -33,7 +33,6 @@ public class HeartbeatRateEffectController : MonoBehaviour
 
         if (player.OnRun() == true)
         {
-            Debug.Log(RunState);
             main.simulationSpeed = runSpeed;
         }
         else main.simulationSpeed = 2.0f;

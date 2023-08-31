@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ZombieStateManager : MonoBehaviour
 {
-    [SerializeField]
-    private ZombieState curState;
+    public ZombieState curState;
 
     private void Update()
     {

@@ -7,14 +7,13 @@ public class ZombieIdle : ZombieState
     [SerializeField]
     private ZombiePursuit       pursuit;                    // "Pursuit"상태
     [SerializeField]
-    private float               RecognitionRange = 8.0f;     // Player인식 범위
+    private float               RecognitionRange = 8.0f;    // Player인식 범위
     [SerializeField]
     private Transform           target;                     // target = Player
 
-    private bool                isRecognize = false;
     public override ZombieState RunCurState()
     {
-        if (isRecognize == true)
+        if (ChangeStateToWander() == true)
         {
             return pursuit;
         }
@@ -23,6 +22,19 @@ public class ZombieIdle : ZombieState
             return this;
         }
     }
+    private bool ChangeStateToWander()
+    {
+        float dis = Vector3.Distance(target.position, transform.position);
 
-    public 
+        if(dis <= RecognitionRange) return true;
+
+        return false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, RecognitionRange);
+    }
+
 }
