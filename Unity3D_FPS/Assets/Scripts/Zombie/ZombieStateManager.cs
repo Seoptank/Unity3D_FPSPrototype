@@ -6,6 +6,11 @@ public class ZombieStateManager : MonoBehaviour
 {
     public ZombieState curState;
 
+    private void Awake()
+    {
+
+    }
+
     private void Update()
     {
         RunStateMachine();
@@ -26,6 +31,16 @@ public class ZombieStateManager : MonoBehaviour
     private void SwitchNextState(ZombieState nextState)
     {
         curState = nextState;
+    }
+
+    public bool OnStatePursuit()
+    {
+        if(curState.OnPursuit() == true)
+        {
+            return true;
+        }
+        return false;
+        
     }
 
 }
