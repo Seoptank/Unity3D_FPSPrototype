@@ -4,27 +4,44 @@ using UnityEngine;
 
 public class ZombieIdle : ZombieState
 {
-    private bool isIdle = false;
+    [Header("State")]
+    [SerializeField]
+    private ZombiePursuit pursuit;
+    [SerializeField]
+    private ZombieWander  wander;
+    
+    private float dis;
 
     public override ZombieState RunCurState()
     {
         if (OnPursuit() == true)
         {
-            return Pursuit;
-        }
-        else if(OnWander() == true)
-        {
-            return Wander;
+            return pursuit;
         }
         else
         {
-            return this;
+            StartCoroutine("OnWander");
+            return wander;
         }
     }
-    private void OnDrawGizmos()
+
+    public bool OnPursuit()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, recognitionRange);
+        dis = Vector3.Distance(target.position, transform.position);
+
+        if(dis<=recognitionRange)
+        {
+            return true;
+        }
+        return false;
     }
+
+    public IEnumerator OnWander()
+    {
+        int changeTime = Random.Range(1, 5);
+
+        yield return new WaitForSeconds(changeTime);
+    }
+    
 
 }

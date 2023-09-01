@@ -5,6 +5,9 @@ using UnityEngine.AI;
 
 public class ZombiePursuit : ZombieState
 {
+    [Header("State")]
+
+
     public override ZombieState RunCurState()
     {
         if (OnAttack() == true)
